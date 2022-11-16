@@ -24,9 +24,9 @@
 
 ## 設計書
 実装機能リスト　https://docs.google.com/spreadsheets/d/1BADeWwhMeCpZz5JmCOEL4AaiK2ERqwjl5_UhpgrjBhA/edit?usp=sharing
-ER図
-テーブル定義書
-アプリケーション詳細設計書
+ER図  https://drive.google.com/file/d/1JTiDvDmj-W7FUuRPZEKYtFMoNK2ZrCdj/view?usp=sharing
+テーブル定義書 https://docs.google.com/spreadsheets/d/1pe2LNmXINBnGM2B2jhapDM2NADJl_ccihkDlWeGRoRw/edit?usp=sharing
+アプリケーション詳細設計書 https://docs.google.com/spreadsheets/d/1RqFjnIvuxI8dzDLw9-iodGBwtW-hqbSoWVotnHhR7PQ/edit?usp=sharing
 テスト仕様書
 
 著作権の問題で、ゲーム画面のキャプチャー、キャラクターイラストの掲載を禁止。
