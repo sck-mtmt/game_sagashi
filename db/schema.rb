@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_16_064328) do
+ActiveRecord::Schema.define(version: 2022_11_17_104501) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,9 +24,36 @@ ActiveRecord::Schema.define(version: 2022_11_16_064328) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "games", force: :cascade do |t|
+    t.string "game_title"
+    t.string "game_description"
+    t.integer "price"
+    t.integer "game_model"
+    t.integer "capacity"
+    t.integer "review_count"
+    t.integer "amazon_url"
+    t.string "memo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "game_id"
+    t.integer "star"
+    t.string "review_title"
+    t.string "review_body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
+    t.string "nick_name"
+    t.string "birth_date"
+    t.boolean "gender"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.boolean "is_deleted"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
