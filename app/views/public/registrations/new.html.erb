@@ -5,11 +5,11 @@
   <%= f.text_field :nick_name, autofocus: true, autocomplete:"nick_name" %><br>
   <%= f.label :birth_date,"生年月日" %>
   <%= f.date_select :birth_date, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1) %><br>
-  <%= f.label :gender,"性別" %>
-    <%= f.label :man %>
-    <%= f.radio_button :gender, :"男" %>
-    <%= f.label :woman %>
-    <%= f.radio_button :gender, :"女" %><br>
+  <%= f.label :gender,"性別" %><br>
+    <%= f.label :男性 %>
+    <%= f.radio_button :gender, :"man" %>
+    <%= f.label :女性 %>
+    <%= f.radio_button :gender, :"woman" %><br>
 
   <%= f.label :email,"メールアドレス" %>
   <%= f.email_field :email, autofocus: true, autocomplete: "email" %><br>
@@ -17,6 +17,6 @@
   <%= f.label :password, "パスワード(６文字以上)" %>
   <%= f.password_field :password, autocomplete: "new-password" %><br>
   <%= f.label :password_confirmation,"パスワード(確認用)" %>
-  <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <%= f.password_field :password_confirmation, autocomplete: "new-password" %><br>
   <%= f.submit "新規登録", class: "btn btn-success" %>
   <% end %>
