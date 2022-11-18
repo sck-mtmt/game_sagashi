@@ -1,11 +1,16 @@
 class Admin::GamesController < ApplicationController
-  def index
-  end
-
   def new
+    @game = Game.new
   end
 
   def create
+    @game = Game.new(@game_params)
+    @game.save
+    redirect_to admin_games_path(@game.id)
+  end
+
+  def index
+   @games=Game.all
   end
 
   def show
@@ -16,4 +21,10 @@ class Admin::GamesController < ApplicationController
 
   def update
   end
+  private
+    def game_params
+      params.require(:game).permit(:game_title,:game_description,:price,
+                                   :game_model,:capacity,:review_count)
+    end
 end
+

@@ -1,2 +1,18 @@
-<h1>Admin::Games#new</h1>
-<p>Find me in app/views/admin/games/new.html.erb</p>
+<h1>ゲーム新規登録</h1>
+
+
+<%= form_with model: @game, url:admin_games_path,method: :post do |f| %>
+　<%= f.label :ゲームタイトル%>
+  <%= f.text_field :game_title %><br>
+  <%= f.label :ゲーム概要%>
+  <%= f.text_area :game_description %><br>
+  <%= f.label :価格%>
+  <%= f.text_field :price %><br>
+  <%= f.label :機種%>
+  <%= f.text_field :game_model %><br>
+  <%= f.label :容量%>
+  <%= f.text_field :capacity %><br>
+
+  <%= f.submit '新規登録' %><br>
+
+<% end %>

@@ -1,2 +1,24 @@
-<h1>Admin::Games#index</h1>
-<p>Find me in app/views/admin/games/index.html.erb</p>
+<h1>ゲーム一覧</h1>
+<p><%= link_to "ゲーム新規登録へ",new_admin_game_path %></p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ゲーム名</th>
+      <th>ゲーム概要</th>
+      <th>価格</th>
+      <th>機種</th>
+      <th>容量</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @games.each do |game| %>
+    <tr>
+      <td><%= game.game_title %></td>
+      <td><%= game.game_description %></td>
+      <td><%= game.price %></td>
+      <td><%= game.game_model %></td>
+      <td><%= game.review_count%></td>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
