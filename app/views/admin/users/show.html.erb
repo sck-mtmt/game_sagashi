@@ -1,2 +1,12 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<h1><%= @user.nick_name %>さんのユーザー詳細</h1>
+<h7>会員ID</h7>
+<%= @user.id %>
+<h7>ニックネーム</h7>
+<%= @user.nick_name %>
+<h7>生年月日</h7>
+<%= @user.birth_date %>
+<h7>性別</h7>
+<%= @user.gender %>
+<h7>メールアドレス</h7>
+<%= @user.email %>
+<h7>ステータス</h7>
