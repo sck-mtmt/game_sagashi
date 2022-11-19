@@ -1,7 +1,7 @@
 <h1>ゲーム新規登録</h1>
 
 
-<%= form_with model: @game, url:admin_games_path,method: :post do |f| %>
+<%= form_with model: @game, url:admin_games_path, method: :post do |f| %>
 　<%= f.label :ゲームタイトル%>
   <%= f.text_field :game_title %><br>
   <%= f.label :ゲーム概要%>

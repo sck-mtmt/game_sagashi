@@ -1,2 +1,15 @@
-<h1>Admin::Games#edit</h1>
-<p>Find me in app/views/admin/games/edit.html.erb</p>
+<h1>ゲーム編集</h1>
+<%= form_with model: @game,url: admin_game_path(@game.id),method: :patch do |f| %>
+　<%= f.label :ゲームタイトル%>
+  <%= f.text_field :game_title %><br>
+  <%= f.label :ゲーム概要%>
+  <%= f.text_area :game_description %><br>
+  <%= f.label :価格%>
+  <%= f.text_field :price %><br>
+  <%= f.label :機種%>
+  <%= f.text_field :game_model %><br>
+  <%= f.label :容量%>
+  <%= f.text_field :capacity %><br>
+
+  <%= f.submit '編集済みにする' %><br>
+<% end %>
