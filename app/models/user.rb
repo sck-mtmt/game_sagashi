@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   #has_many :games, dependent: :destroy
   belongs_to :review
-  enum gender: { man: 0, woman: 1, unanswered: git2}
+  enum gender: { man: 0, woman: 1, unanswered: 2}
 end
