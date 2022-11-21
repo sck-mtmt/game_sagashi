@@ -16,7 +16,11 @@
           <%= user.nick_name %>
           <% end %></td>
       <td><%= user.email %></td>
-      <td></td>
+      <td><% if user.is_deleted %>
+          <font color="silver">退会</font>
+          <% else %>
+          <font color="green"><strong>有効</strong></font>
+          <% end %></td>
     </tr>
     <% end %>
   </tbody>

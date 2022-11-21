@@ -1,4 +1,4 @@
 class Review < ApplicationRecord
   has_many :games, dependent: :destroy
-  belongs_to :user
+  #has_many :user, dependent: :destroy
 end

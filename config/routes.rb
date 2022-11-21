@@ -11,7 +11,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   namespace :admin do
     root to:"homes#top"
     resources :games, only: [:index,:new,:create,:show,:edit,:update]
-    resources :users, only: [:index,:show,:edit]
+    resources :users, only: [:index,:show,:edit,:update]
     resources :reviews, only: [:show,:edit,:destroy]
   end
   namespace :public do

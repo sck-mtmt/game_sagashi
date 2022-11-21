@@ -12,13 +12,11 @@
     <%= f.radio_button :gender, :"woman" %>
     <%= f.label :未回答 %>
     <%= f.radio_button :gender, :"unanswered" %><br>
-
   <%= f.label :email,"メールアドレス" %>
   <%= f.email_field :email, autofocus: true, autocomplete: "email" %><br>
-
   <%= f.label :password, "パスワード(６文字以上)" %>
   <%= f.password_field :password, autocomplete: "new-password" %><br>
   <%= f.label :password_confirmation,"パスワード(確認用)" %>
   <%= f.password_field :password_confirmation, autocomplete: "new-password" %><br>
-  <%= f.submit "新規登録", class: "btn btn-success" %>
-  <% end %>
+  <%= f.submit "新規登録" %>
+<% end %>
