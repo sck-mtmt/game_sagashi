@@ -1,2 +1,7 @@
-<h1>Public::Users#unsubsscribe</h1>
-<p>Find me in app/views/public/users/unsubsscribe.html.erb</p>
+<h1>ユーザー退会画面</h1>
+本当に退会しますか
+<h7>退会すると<br>
+あなたの登録情報やレビュー一覧が<br>
+閲覧ができなくなります。</h7>
+<%= link_to "退会しない", public_users_my_page_path(current_user) %>
+<%= link_to "退会する", public_users_withdraw_path, method: :patch %>
