@@ -5,7 +5,7 @@
   <%= f.text_field :nick_name %><br>
   <%= f.label :birth_date,"生年月日" %>
   <%= f.date_select :birth_date, use_month_numbers: true,
-      start_year: 1930, end_year: (Time.now.year - 10) %>
+      start_year: 1930, end_year: (Time.now.year - 10) %><br>
   <%= f.label :gender,"性別" %><br>
       <%= f.label :男性 %>
       <%= f.radio_button :gender, :"man" %>

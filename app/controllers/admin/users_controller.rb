@@ -19,7 +19,7 @@ class Admin::UsersController < ApplicationController
 
  private
   def user_params
-    params.require(:user).permit(:nick_name, :birth_date,:genger,
+    params.require(:user).permit(:nick_name, :birth_date,:gender,
                                  :email, :encrypted_password, :is_deleted)
   end
 end

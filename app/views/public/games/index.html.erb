@@ -1,2 +1,13 @@
-<h1>Public::Games#index</h1>
-<p>Find me in app/views/public/games/index.html.erb</p>
+<h1>ゲーム一覧</h1>
+<p>レビューを投稿するにはゲーム選択後<strong>プレイしたいゲームに登録</strong>してからできます</p>
+
+<% @games.each do |game| %>
+<%= game.game_title %>
+<!--amazonのAPIをいれて画像表示させたい>
+<%= game.game_model %>
+<%= game.review_count %>
+
+<% end %>
+
+
+
