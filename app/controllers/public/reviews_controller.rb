@@ -2,10 +2,15 @@ class Public::ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    binding.irb
     @review.user_id = current_user.id
-    @review.save
-    redirect_to public_reviews_path(@review.id)
-
+    tag_list = params[:review][:tag_name].split(nil)
+    if @review.save
+      @review.save_tag(tag_list)
+      redirect_to public_reviews_path(@review.id)
+    else
+      redirect_to public_games_path
+    end
   end
 
   def index
@@ -25,7 +30,7 @@ class Public::ReviewsController < ApplicationController
   private
   def review_params
     params.require(:review).permit(:user_id, :game_id, :star,
-                                   :review_title, :review_body)
+                                   :review_title, :review_body, content: [])
   end
 end
 

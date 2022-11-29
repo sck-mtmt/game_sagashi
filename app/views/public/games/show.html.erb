@@ -9,7 +9,11 @@
 <h5>ゲーム価格</h5>
 <%= @game.price %>円<br>
 
-<%= form_with model: @game, url:public_reviews_path, method: :post do |f| %>
-<%= f.select :amount, *[1..10] %>
+<h3>なぜ興味を持ったのか教えてください</h3>
+<%= form_with model: @review, url:public_reviews_path, method: :post do |f| %>
+
+<%= f.collection_check_boxes(:content, [[:content1, "容量"], [:content2, "機種"], [:content3, "価格"]], :first, :last, include_hidden: false) %>
+
 <%= f.hidden_field :game_id, :value => @game.id %>
 <%= f.submit "投稿する" %>
+<% end %>
