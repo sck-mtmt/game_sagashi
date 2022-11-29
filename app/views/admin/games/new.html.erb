@@ -2,17 +2,19 @@
 
 
 <%= form_with model: @game, url:admin_games_path, method: :post do |f| %>
-　<%= f.label :ゲームタイトル%>
+　<%= f.label :ゲームタイトル %>
   <%= f.text_field :game_title %><br>
-  <%= f.label :ゲーム概要%>
+  <%= f.label :ゲーム概要 %>
   <%= f.text_area :game_description %><br>
-  <%= f.label :価格%>
+  <%= f.label :価格 %>
   <%= f.text_field :price %><br>
-  <%= f.label :機種%>
+  <%= f.label :機種 %>
   <%= f.text_field :game_model %><br>
-  <%= f.label :容量%>
+  <%= f.label :容量 %>
   <%= f.text_field :capacity %><br>
-
+  <%= f.label :公開ステータス %>
+  <%= f.radio_button :is_active, true %>公開中
+  <%= f.radio_button :is_active, false %>未公開<br>
   <%= f.submit '新規登録' %><br>
 
 <% end %>

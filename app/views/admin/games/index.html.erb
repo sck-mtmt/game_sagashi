@@ -18,9 +18,15 @@
           <%= game.game_title %>
           <% end %></td>
       <td><%= game.game_description %></td>
-      <td><%= game.price %></td>
+      <td><%= game.price %>円</td>
       <td><%= game.game_model %></td>
-      <td><%= game.capacity %></td>
+      <td><%= game.capacity %>KB</td>
+      <td><% if game.is_active %>
+          公開中
+          <% else %>
+          未公開
+          <% end %>
+      </td>
     <% end %>
     </tr>
   </tbody>

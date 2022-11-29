@@ -5,5 +5,10 @@
 価格　：　<%= @game.price %><br>
 機種　：　<%= @game.game_model %><br>
 容量：　<%= @game.capacity %><br>
+    <% if @game.is_active %>
+      公開中
+    <% else %>
+      未公開
+    <% end %>
 
 <%= link_to "ゲーム編集",edit_admin_game_path %>

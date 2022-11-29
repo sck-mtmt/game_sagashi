@@ -28,11 +28,11 @@ ActiveRecord::Schema.define(version: 2022_11_17_104501) do
     t.string "game_title"
     t.string "game_description"
     t.integer "price"
-    t.integer "game_model"
+    t.string "game_model"
     t.integer "capacity"
     t.integer "review_count"
     t.integer "amazon_url"
-    t.string "memo"
+    t.boolean "is_active", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

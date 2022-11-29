@@ -6,6 +6,7 @@ class Public::GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @review = Review.new
   end
 private
   def game_params

@@ -1,13 +1,31 @@
 <h1>ゲーム一覧</h1>
 <p>レビューを投稿するにはゲーム選択後<strong>プレイしたいゲームに登録</strong>してからできます</p>
 
-<% @games.each do |game| %>
-<%= game.game_title %>
-<!--amazonのAPIをいれて画像表示させたい>
-<%= game.game_model %>
-<%= game.review_count %>
+<table>
+  <thead>
+    <tr>
+      <!--<th>amazonAPI画像</th>-->
+      <th>ゲーム名</th>
+      <th>ゲーム概要</th>
+      <th>機種</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @games.each do |game| %>
+    <tr>
+      <td><%= link_to public_game_path(game.id) do %>
+          <%= game.game_title %>
+          <% end %></td>
+      <!--<amazonのAPIをいれて画像表示させたい>-->
+      <td><%= game.game_description %></td>
+      <td><%= game.game_model %></td>
+      <td><%= game.review_count %></td>
+    <% end %>
+    </tr>
+  </tbody>
+ </table>
 
-<% end %>
 
 
 
