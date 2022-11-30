@@ -1,9 +1,10 @@
 <h3>購入、遊ぶ前のゲーム</h3>
 <!--APIでの画像>
 <%= @review.game.game_title %>
-<%= @review.content %>
+<% @review.tags.each do |tag| %>
+    <%= tag.name %>
+<% end %>
 <%= link_to "レビューする", edit_public_review_path %>
-
-<h3>購入後、クリア後のゲーム</h3>
+購入後、クリア後のゲーム</h3>
 <!--APIでの画像>
 <!--ゲームタイトル>
