@@ -27,7 +27,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     patch 'users/my_page' => 'users#update'
     get 'users/unsubsscribe' => 'users#unsubsscribe'
     patch 'users/withdraw' => 'users#withdraw'
-    resources :reviews,only: [:new, :create, :index, :edit, :update, :destroy]
+    resources :reviews,only: [:new, :create, :index, :show, :edit, :update, :destroy]
   end
     root to:'public/homes#top'
 end

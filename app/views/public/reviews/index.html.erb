@@ -1,10 +1,18 @@
-<h3>購入、遊ぶ前のゲーム</h3>
-<!--APIでの画像>
-<%= @review.game.game_title %>
-<% @review.tags.each do |tag| %>
-    <%= tag.name %>
-<% end %>
-<%= link_to "レビューする", edit_public_review_path %>
-購入後、クリア後のゲーム</h3>
-<!--APIでの画像>
-<!--ゲームタイトル>
+<h1>レビュー一覧</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ゲームタイトル</th>
+            <th>レビュータイトル</th>
+            <th>詳細・投稿</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @reviews.each do |review| %>
+        <tr>
+            <td><%= review.game.game_title %></td>
+            <td><%= review.review_title %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

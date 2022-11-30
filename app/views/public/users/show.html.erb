@@ -10,6 +10,6 @@
 <%= @user.gender_i18n %><br>
 メールアドレス
 <%= @user.email %><br>
-
+<%= link_to "マイレビュー", public_review_path(review.id) %>|
 <%= link_to "登録編集", public_users_my_page_edit_path %>|
 <%= link_to "退会する", public_users_unsubsscribe_path %>

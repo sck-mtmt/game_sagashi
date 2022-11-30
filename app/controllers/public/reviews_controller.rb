@@ -1,14 +1,17 @@
 class Public::ReviewsController < ApplicationController
+  def index
+    @reviews = Review.all
+  end
 
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     @review.save
-    redirect_to public_reviews_path
+    redirect_to public_review_path(@review.id)
   end
 
-  def index
-    @review = Review.find(para:id])
+  def show
+    @review = Review.find(params[:id])
   end
 
   def edit
