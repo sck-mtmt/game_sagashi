@@ -8,5 +8,10 @@
   <%= link_to "レビューする", edit_public_review_path %>
 <% end %>
 <h3>購入後、クリア後のゲーム</h3>
+<% #@reviews.each do |review| %>
 <% #APIでの画像 %>
-<% #ゲームタイトル %>
+<% #review.game.game_title %>
+<% #review %>
+<% #review.review_title %>
+<% #review.review_body %>
+<%#= link_to "削除する", destroy_public_review_path(@review.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>

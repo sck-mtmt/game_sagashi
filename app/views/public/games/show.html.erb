@@ -19,7 +19,5 @@
                 <% end %>
         <% end %>
         <%= f.hidden_field :game_id, :value => @game.id %>
-        <% if @review.user == current_user %>
-          <%= f.submit '投稿', class: 'btn btn-primary' %>
-        <% end %>
+        <%= f.submit '投稿', class: 'btn btn-primary' %>
   <% end %>
