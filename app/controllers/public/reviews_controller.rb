@@ -1,5 +1,5 @@
 class Public::ReviewsController < ApplicationController
-    before_action :authenticate_user!
+    before_action :move_to_signed_in, except: [:index, :show]
 
   def index
     @reviews = Review.all
@@ -9,10 +9,8 @@ class Public::ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
-    binding.irb
     @review.save
     redirect_to public_review_path(@review.id)
-
   end
 
   def show
@@ -24,16 +22,27 @@ class Public::ReviewsController < ApplicationController
   end
 
   def update
+    @review = Review.find(params[:id])
+    @review.update(review_params)
+    redirect_to public_review_path(@review.id)
   end
 
   def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to public_review_path(review.id)
   end
 
   private
-  def review_params
-    params.require(:review).permit(:user_id, :game_id, :star,
+    def review_params
+      params.require(:review).permit(:user_id, :game_id, :star,
                                    :review_title, :review_body, tag_ids: [])
-  end
+    end
+    def move_to_signed_in
+        unless user_signed_in?
+        redirect_to root_path
+        end
+    end
 end
 
 

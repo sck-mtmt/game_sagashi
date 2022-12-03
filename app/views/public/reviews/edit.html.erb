@@ -1,8 +1,24 @@
 <h1>クリア後のレビューを投稿する</h1>
-
-<h3>購入後、クリア後のレビューを投稿する</h3>
-
-評価<br>
-レビュータイトル<br>
-レビュー文<br>
-
+<h3>購入後、ゲームクリア後のレビューを投稿する</h3>
+<%= form_with model: @review,url: public_review_path(@review.id),method: :patch do |f| %>
+<h5>総合評価</h5>
+<form type="get" action="#">
+  <div class="star">
+    <input id="star1" type="radio" name="star" value="5" />
+    <label for="star1"><span class="text">最高</span>★</label>
+    <input id="star2" type="radio" name="star" value="4" />
+    <label for="star2"><span class="text">良い</span>★</label>
+    <input id="star3" type="radio" name="star" value="3" />
+    <label for="star3"><span class="text">普通</span>★</label>
+    <input id="star4" type="radio" name="star" value="2" />
+    <label for="star4"><span class="text">悪い</span>★</label>
+    <input id="star5" type="radio" name="star" value="1" />
+    <label for="star5"><span class="text">最悪</span>★</label>
+  </div>
+</form>
+<h5>レビュータイトル</h5>
+<%= f.text_field :review_title %><br>
+<h5>レビュー文</h5>
+<%= f.text_field :review_body %><br>
+<%= f.submit 'レビューを投稿する', class: 'btn btn-primary' %>
+<% end %>
