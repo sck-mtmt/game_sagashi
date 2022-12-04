@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration[6.1]
 
       t.integer :user_id
       t.integer :game_id
-      t.integer :star
+      t.float :star
       t.string :review_title
       t.string :review_body
       t.string :content

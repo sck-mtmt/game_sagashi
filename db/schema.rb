@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2022_11_29_102437) do
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id"
     t.integer "game_id"
-    t.integer "star"
+    t.float "star"
     t.string "review_title"
     t.string "review_body"
     t.string "content"

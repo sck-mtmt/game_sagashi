@@ -1,14 +1,16 @@
 <h3>購入、遊ぶ前のゲーム</h3>
   <% @review.tags.each do |tag| %>
     <% #APIでの画像 %>
-    <%= @review.game.game_title %>
-    <%= tag.name %>
-    <%= link_to "レビューする", edit_public_review_path %>
+    <%= @review.game.game_title %><br>
+    <%= tag.name %><br>
+    <%= link_to "レビューする", edit_public_review_path %><br>
   <% end %>
 <h3>購入後、クリア後のゲーム</h3>
-<% #@reviews.each do |review| %>
-<% #APIでの画像 %>
-<% #review.game.game_title %>
-<% #review.review_title %>
-<% #review.review_body %>
-<%#= link_to "削除する", destroy_public_review_path(@review.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+  <% #APIでの画像 %>
+  <%= @review.star %>
+  <div class="star-rating">
+      <div class="star-rating-front" style="width: 50%">★★★★★</div>
+      <div class="star-rating-back">★★★★★</div>
+  </div>
+  <%= @review.review_title %>
+  <%= @review.review_body %>

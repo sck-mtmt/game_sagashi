@@ -1,19 +1,19 @@
-.star{
+.evaluation{
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
 }
-.star input[type='radio']{
+.evaluation input[type='radio']{
   display: none;
 }
-.star label{
+.evaluation label{
   position: relative;
   padding: 10px 10px 0;
   color: gray;
   cursor: pointer;
   font-size: 50px;
 }
-.star label .text{
+.evaluation label .text{
   position: absolute;
   left: 0;
   top: 0;
@@ -22,8 +22,8 @@
   font-size: 12px;
   color: gray;
 }
-.star label:hover,
-.star label:hover ~ label,
-.star input[type='radio']:checked ~ label{
+.evaluation label:hover,
+.evaluation label:hover ~ label,
+.evaluation input[type='radio']:checked ~ label{
   color: #ffcc00;
 }
