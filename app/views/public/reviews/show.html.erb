@@ -9,14 +9,14 @@
 <% @reviews.each do |review| %>
   <%= review.user.nick_name %><br>
   <%= review.review_title %><br>
-<!--<div>-->
-<!--<h2>総合評価：-->
-<!--<span class="star-rating">-->
-<!-- <span class="star-rating-front" style="width: <%#= getPercent(star) %>%;">★★★★★</span>-->
-<!-- <span class="star-rating-back">★★★★★</span>-->
-<!--</span>-->
-<!--</h2>-->
-<!--</div><br>-->
+<div>
+<h2>総合評価：
+<span class="star-rating">
+ <span class="star-rating-front" style="width: <%#= getPercent(star) %>%;">★★★★★</span>
+ <span class="star-rating-back">★★★★★</span>
+</span>
+</h2>
+</div><br>
   <%= review.review_body %><br>
   <% #コメント投稿 %>
   <% #いいね %>

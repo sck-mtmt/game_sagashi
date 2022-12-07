@@ -5,6 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :reviews, dependent: :destroy
 
+  validates :nick_name, presence: true, length: {minimum: 3,maximum: 10}
+  validates :birth_date, presence: true
+  validates :gender, presence: true
+  validates :email, presence: true
+
   enum gender: { man: 0, woman: 1, unanswered: 2}
 
   def active_for_authentication?
