@@ -1,16 +1,23 @@
-<h3>購入、遊ぶ前のゲーム</h3>
+<h3><%= @review.game.game_title %></h3>
+<% #APIでの画像 %>
+
+<h5>投稿のあるタグ</h5>
   <% @review.tags.each do |tag| %>
-    <% #APIでの画像 %>
-    <%= @review.game.game_title %>
     <%= tag.name %>
-    <%= link_to "レビューする", edit_public_review_path %>
   <% end %>
-<h3>購入後、クリア後のゲーム</h3>
-  <% #APIでの画像 %>
-  <%= @review.star %>
-  <div class="star-rating">
-      <div class="star-rating-front" style="width: 50%">★★★★★</div>
-      <div class="star-rating-back">★★★★★</div>
-  </div>
-  <%= @review.review_title %>
-  <%= @review.review_body %>
+
+<% @reviews.each do |review| %>
+  <%= review.user.nick_name %><br>
+  <%= review.review_title %><br>
+<!--<div>-->
+<!--<h2>総合評価：-->
+<!--<span class="star-rating">-->
+<!-- <span class="star-rating-front" style="width: <%#= getPercent(star) %>%;">★★★★★</span>-->
+<!-- <span class="star-rating-back">★★★★★</span>-->
+<!--</span>-->
+<!--</h2>-->
+<!--</div><br>-->
+  <%= review.review_body %><br>
+  <% #コメント投稿 %>
+  <% #いいね %>
+<% end %>

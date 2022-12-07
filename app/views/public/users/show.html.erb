@@ -13,3 +13,16 @@
 <%= link_to "登録編集", public_users_my_page_edit_path %>|
 <%= link_to "退会する", public_users_unsubsscribe_path %>
 
+<h3>ゲームチェック済一覧</h3>
+  <% @review.tags.each do |tag| %>
+    <%= review.created_at.strftime('%Y/%m/%d') %>
+    <%= review.game.game_title %>
+    <%= link_to "レビューする", edit_public_review_path %>
+  <% end %>
+<h3>ゲームクリア済一覧</h3>
+  <% @reviews.each do |review| %>
+    <%= review.updated_at.strftime('%Y/%m/%d') %>
+    <%= @review.star %>
+    <%= @review.review_title %>
+    <%= @review.review_body %>
+  <% end %>

@@ -1,9 +1,16 @@
 class Public::UsersController < ApplicationController
-
-
+before_action :move_to_signed_in, except: [ :show ]
+  def create
+    @review = Review.new(review_params)
+    @review.user_id = current_user.id
+    @review.save
+    redirect_to public_users_my_page_path
+  end
   def show
     @user = current_user
     @review = current_user
+    @reviews = Review.all
+    @reviews = params[:tag_id].present? ? Tag.find(params[:tag_id]).reviews : Review.all
   end
 
   def edit
@@ -30,5 +37,10 @@ class Public::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:nick_name, :birth_date, :genger, :email,
                                  :encrypted_password, :is_deleted)
+  end
+  def move_to_signed_in
+      unless user_signed_in?
+      redirect_to root_path
+      end
   end
 end

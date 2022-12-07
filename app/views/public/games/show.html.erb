@@ -11,7 +11,7 @@
 
 
   <h3>なぜ興味を持ったのか教えてください</h3>
-  <%= form_with model: @review, url:public_reviews_path(@review.id), method: :post do |f| %>
+  <%= form_with model: @review, url:public_users_my_page_path, method: :post do |f| %>
         <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
                 <%= tag.label do %>
                     <%= tag.check_box %>
