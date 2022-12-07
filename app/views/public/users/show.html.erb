@@ -15,14 +15,20 @@
 
 <h3>ゲームチェック済一覧</h3>
   <% @review.tags.each do |tag| %>
+  <h6>投稿日</h6>
     <%= review.created_at.strftime('%Y/%m/%d') %>
+  <h6>ゲームタイトル</h6>
     <%= review.game.game_title %>
     <%= link_to "レビューする", edit_public_review_path %>
   <% end %>
 <h3>ゲームクリア済一覧</h3>
   <% @reviews.each do |review| %>
+  <h6>クリアレビュー日</h6>
     <%= review.updated_at.strftime('%Y/%m/%d') %>
+    <h6></h6>評価</h6>
     <%= @review.star %>
+    <h6>レビュータイトル</h6>
     <%= @review.review_title %>
+    <h6>レビュー文</h6>
     <%= @review.review_body %>
   <% end %>
