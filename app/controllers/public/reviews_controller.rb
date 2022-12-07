@@ -15,7 +15,7 @@ class Public::ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
-    @reviews = Review.find(params[:id])
+    @reviews= Review.find(params[:id])
   end
 
   def edit

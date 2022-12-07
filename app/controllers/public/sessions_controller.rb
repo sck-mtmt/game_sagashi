@@ -14,6 +14,12 @@ class Public::SessionsController < Devise::SessionsController
       end
     end
   end
+  def new_guest
+    # binding.pry
+    user = User.guest
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
 
   protected
   def user_state

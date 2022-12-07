@@ -6,14 +6,6 @@ devise_for :users,skip: [:passwords], controllers: {
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-#devise_for :users, controllers: {
-    #registrations: 'users/registrations',
-    #passwords: 'users/passwords'
-  #}
-  #devise_scope :user do
-    #post 'users/guest_sign_in', as: 'users/sessions#guest_sign_in'
-  #end
   namespace :admin do
     root to:"homes#top"
     resources :games, only: [:index,:new,:create,:show,:edit,:update]
@@ -22,6 +14,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   end
   namespace :public do
     resources :games,only: [:index,:show]
+    post 'users/my_page' => 'users#create'
     get 'users/my_page' => 'users#show'
     get 'users/my_page/edit' => 'users#edit'
     patch 'users/my_page' => 'users#update'
@@ -29,6 +22,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     patch 'users/withdraw' => 'users#withdraw'
     resources :reviews,only: [:new, :create, :index, :show, :edit, :update, :destroy]
   end
+  devise_scope :user do
+    # post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+    post 'public/guest_sign_in', to: 'public/sessions#new_guest'
+  end
     root to:'public/homes#top'
 end
-

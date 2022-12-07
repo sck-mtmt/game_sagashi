@@ -1,6 +1,9 @@
 class Public::UsersController < ApplicationController
+
+
   def show
     @user = current_user
+    @review = current_user
   end
 
   def edit
