@@ -1,5 +1,5 @@
 class Public::UsersController < ApplicationController
-before_action :move_to_signed_in, except: [ :show ]
+ before_action :move_to_signed_in, except: [ :show ]
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
@@ -8,9 +8,9 @@ before_action :move_to_signed_in, except: [ :show ]
   end
   def show
     @user = current_user
-    @review = current_user
-    @reviews = Review.all
-    @reviews = params[:tag_id].present? ? Tag.find(params[:tag_id]).reviews : Review.all
+    @review = current_user.reviews.where(star: nil)
+    @reviews = current_user.reviews.where.not(star: nil)
+#    @reviews = params[:tag_id].present? ? Tag.find(params[:tag_id]).reviews : Review.all
   end
 
   def edit
@@ -37,6 +37,9 @@ before_action :move_to_signed_in, except: [ :show ]
   def user_params
     params.require(:user).permit(:nick_name, :birth_date, :genger, :email,
                                  :encrypted_password, :is_deleted)
+  end
+  def review_params
+    params.require(:review).permit(:game_id, :tag_ids[])
   end
   def move_to_signed_in
       unless user_signed_in?

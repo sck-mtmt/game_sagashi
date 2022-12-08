@@ -6,16 +6,9 @@ class Public::ReviewsController < ApplicationController
     @reviews = params[:tag_id].present? ? Tag.find(params[:tag_id]).reviews : Review.all
   end
 
-  # def create
-  #   @review = Review.new(review_params)
-  #   @review.user_id = current_user.id
-  #   @review.save
-  #   redirect_to public_review_path(@review.id)
-  # end
-
   def show
     @review = Review.find(params[:id])
-    @reviews = Review.all
+    @reviews = Review.find(params[:id])
   end
 
   def edit
@@ -25,7 +18,7 @@ class Public::ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     @review.update(review_params)
-    redirect_to public_review_path(@review.id)
+    redirect_to public_users_my_page_path
   end
 
   def destroy
