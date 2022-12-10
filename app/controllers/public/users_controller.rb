@@ -1,10 +1,25 @@
 class Public::UsersController < ApplicationController
  before_action :move_to_signed_in, except: [ :show ]
+
   def create
-    @review = Review.new(review_params)
+    item = []
+    @review = Review.new
+    @review.game_id = params[:review][:game_id]
+    tag_lists =  params[:review][:tag_ids]
+    tag_lists.shift
+    tag_lists.each do |tag_list|
+      tag = Tag.find(tag_list)
+      item << tag.name
+    end
+    # binding.pry
     @review.user_id = current_user.id
-    @review.save
-    redirect_to public_users_my_page_path
+
+    if @review.save
+      @review.save_tag(item)
+      redirect_to public_users_my_page_path
+    else
+      binding.pry
+    end
   end
   def show
     @user = current_user
@@ -42,9 +57,9 @@ class Public::UsersController < ApplicationController
     params.require(:review).permit(:game_id, :tag_ids[],
                                    :star, :review_title, :review_body)
   end
-  #def tag_params
-    #params.require(:tag).permit(:tag_ids[])
-  #end
+  # def tag_params
+  #   params.require(:review).permit(:game_id,:tag_ids[])
+  # end
   def move_to_signed_in
       unless user_signed_in?
       redirect_to root_path

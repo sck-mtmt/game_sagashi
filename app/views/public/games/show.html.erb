@@ -13,10 +13,10 @@
   <h3>なぜ興味を持ったのか教えてください</h3>
   <%= form_with model: @review, url:public_users_my_page_path, method: :post do |f| %>
         <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
-                <%= tag.label do %>
+                <%#= tag.label do %>
                     <%= tag.check_box %>
                     <%= tag.text %>
-                <% end %>
+                <%# end %>
         <% end %>
         <%= f.hidden_field :game_id, :value => @game.id %>
         <%= f.submit '投稿', class: 'btn btn-primary' %>

@@ -3,17 +3,17 @@
 <% #APIでの画像 %>
 <h5>投稿のあるタグ</h5>
     容量:
-      <%= Game.review.tag.name1.count(:tag_id) %>件
+      <%= Game.review.tag_1.count(:tag_id) %>件
     機種:
-      <%= Game.review.tag.name2.count(:tag_id) %>件
+      <%= Game.review.tag_2.count(:tag_id) %>件
     価格:
-      <%= Game.review.tag.name3.count(:tag_id) %>件
+      <%= Game.review.tag_3.count(:tag_id) %>件
     BGM:
-      <%= Game.review.tag.name4.count(:tag_id) %>件
+      <%= Game.review.tag_4.count(:tag_id) %>件
     レビューが好評:
-      <%= Game.review.tag.name5.count(:tag_id) %>件
+      <%= Game.review.tag_5.count(:tag_id) %>件
     雰囲気が良さそう:
-      <%= Game.review.tag.name6.count(:tag_id) %>件
+      <%= Game.review.tag_6.count(:tag_id) %>件
 
 <% @reviews.each do |review| %>
   <%= review.user.nick_name %><br>
