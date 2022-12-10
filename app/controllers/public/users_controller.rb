@@ -7,25 +7,21 @@ class Public::UsersController < ApplicationController
     @review.game_id = params[:review][:game_id]
     tag_lists =  params[:review][:tag_ids]
     tag_lists.shift
-    tag_lists.each do |tag_list|
-      tag = Tag.find(tag_list)
-      item << tag.name
-    end
-    # binding.pry
+      tag_lists.each do |tag_list|
+        tag = Tag.find(tag_list)
+        item << tag.name
+      end
     @review.user_id = current_user.id
-
-    if @review.save
-      @review.save_tag(item)
-      redirect_to public_users_my_page_path
-    else
-      binding.pry
-    end
+      if @review.save
+         @review.save_tag(item)
+         redirect_to public_users_my_page_path
+      end
   end
+  
   def show
     @user = current_user
     @review = current_user.reviews.where(star: nil)
     @reviews = current_user.reviews.where.not(star: nil)
-    # @reviews = params[:tag_id].present? ? Tag.find(params[:tag_id]).reviews : Review.all
   end
 
   def edit
