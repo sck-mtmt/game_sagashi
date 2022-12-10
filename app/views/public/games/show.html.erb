@@ -9,7 +9,7 @@
 <h5>ゲーム価格</h5>
 <%= @game.price %>円<br>
 
-
+<!--投稿することによってレビューできるようになる。マイページへ登録画面がいく-->
   <h3>なぜ興味を持ったのか教えてください</h3>
   <%= form_with model: @review, url:public_users_my_page_path, method: :post do |f| %>
         <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>

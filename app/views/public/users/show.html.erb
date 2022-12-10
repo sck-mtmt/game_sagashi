@@ -13,7 +13,10 @@
   <%= link_to "登録編集", public_users_my_page_edit_path %>|
   <%= link_to "退会する", public_users_unsubsscribe_path %>
 
+<!--投稿したゲームデータが入る-->
+
 <h3>ゲームチェック済一覧</h3>
+<% #@review.star.any %>
   <% @review.each do |review| %>
     <h6>投稿日</h6>
     <%= review.created_at.strftime('%Y/%m/%d') %>
@@ -21,14 +24,24 @@
     <%= review.game.game_title %>
     <%= link_to "レビューする", edit_public_review_path(review.id) %>
   <% end %>
+<% #end %>
+<!--レビューしたゲームデータが入る-->
 <h3>ゲームクリア済一覧</h3>
-  <% @reviews.each do |review| %>
-    <h6>  クリアレビュー日</h6>
+<% #@review.star.any? %>
+  <% @review.each do |review| %>
+    <h6>クリアレビュー日</h6>
     <%= review.updated_at.strftime('%Y/%m/%d') %>
-    <h6></h6>評価</h6>
-    <%= review.star %>
+    <div>
+      <h6>評価：
+        <span class="star-rating">
+          <span class="star-rating-front" style="width: <%= getPercent(review.star) %>%;">★★★★★</span>
+          <span class="star-rating-back">★★★★★</span>
+        </span>
+      </h6>
+    </div><br>
     <h6>レビュータイトル</h6>
     <%= review.review_title %>
     <h6>レビュー文</h6>
     <%= review.review_body %>
   <% end %>
+<% #end %>

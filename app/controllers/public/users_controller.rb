@@ -10,7 +10,7 @@ class Public::UsersController < ApplicationController
     @user = current_user
     @review = current_user.reviews.where(star: nil)
     @reviews = current_user.reviews.where.not(star: nil)
-#    @reviews = params[:tag_id].present? ? Tag.find(params[:tag_id]).reviews : Review.all
+    # @reviews = params[:tag_id].present? ? Tag.find(params[:tag_id]).reviews : Review.all
   end
 
   def edit
@@ -39,8 +39,12 @@ class Public::UsersController < ApplicationController
                                  :encrypted_password, :is_deleted)
   end
   def review_params
-    params.require(:review).permit(:game_id, :tag_ids[])
+    params.require(:review).permit(:game_id, :tag_ids[],
+                                   :star, :review_title, :review_body)
   end
+  #def tag_params
+    #params.require(:tag).permit(:tag_ids[])
+  #end
   def move_to_signed_in
       unless user_signed_in?
       redirect_to root_path

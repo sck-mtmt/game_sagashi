@@ -6,12 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Tag.create([
-  { name: '容量' },
-  { name: '機種' },
-  { name: '価格' },
-  { name: 'BGM' },
-  { name: 'レビューが好評' },
-  { name: '雰囲気が良さそう' }
+  { name1: '容量' },
+  { name2: '機種' },
+  { name3: '価格' },
+  { name4: 'BGM' },
+  { name5: 'レビューが好評' },
+  { name6: '雰囲気が良さそう' }
 ])
 Admin.create!(
   email: 'admin@admin.com',

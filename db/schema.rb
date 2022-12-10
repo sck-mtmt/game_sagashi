@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2022_11_29_102437) do
     t.integer "price"
     t.string "game_model"
     t.integer "capacity"
-    t.integer "review_count"
     t.integer "amazon_url"
     t.boolean "is_active", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
@@ -43,7 +42,6 @@ ActiveRecord::Schema.define(version: 2022_11_29_102437) do
     t.float "star"
     t.string "review_title"
     t.string "review_body"
-    t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

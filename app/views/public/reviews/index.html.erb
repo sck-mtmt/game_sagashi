@@ -20,7 +20,16 @@
         <% @reviews.each do |review| %>
         <tr>
             <td><%= review.game.game_title %></td>
-            <td><%= review.review_title %></td>
+            <td>
+                <div>
+                  <h8>総合評価：
+                    <span class="star-rating">
+                      <span class="star-rating-front" style="width: <%= getPercent(review.star) %>%;">★★★★★</span>
+                        <span class="star-rating-back">★★★★★</span>
+                      </span>
+                  </h8>
+                </div><br>
+            </td>
             <td><%= link_to "詳細＆コメントする", public_review_path(review.id) %></td>
         </tr>
         <% end %>

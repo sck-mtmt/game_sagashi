@@ -185,3 +185,11 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
 
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        nick_name: ニックネーム
+        gender: 性別
+

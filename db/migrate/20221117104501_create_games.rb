@@ -7,7 +7,6 @@ class CreateGames < ActiveRecord::Migration[6.1]
       t.integer :price
       t.string :game_model
       t.integer :capacity
-      t.integer :review_count
       t.integer :amazon_url
       t.boolean :is_active, default: false,null:false
       t.timestamps

@@ -1,10 +1,19 @@
 <h3><%= @review.game.game_title %></h3>
-<% #APIでの画像 %>
 
+<% #APIでの画像 %>
 <h5>投稿のあるタグ</h5>
-  <% @review.tags.each do |tag| %>
-    <%= tag.name %>
-  <% end %>
+    容量:
+      <%= Game.review.tag.name1.count(:tag_id) %>件
+    機種:
+      <%= Game.review.tag.name2.count(:tag_id) %>件
+    価格:
+      <%= Game.review.tag.name3.count(:tag_id) %>件
+    BGM:
+      <%= Game.review.tag.name4.count(:tag_id) %>件
+    レビューが好評:
+      <%= Game.review.tag.name5.count(:tag_id) %>件
+    雰囲気が良さそう:
+      <%= Game.review.tag.name6.count(:tag_id) %>件
 
 <% @reviews.each do |review| %>
   <%= review.user.nick_name %><br>

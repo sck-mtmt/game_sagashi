@@ -7,7 +7,6 @@ class CreateReviews < ActiveRecord::Migration[6.1]
       t.float :star
       t.string :review_title
       t.string :review_body
-      t.string :content
 
 
       t.timestamps
