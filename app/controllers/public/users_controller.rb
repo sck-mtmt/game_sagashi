@@ -53,9 +53,6 @@ class Public::UsersController < ApplicationController
     params.require(:review).permit(:game_id, :tag_ids[],
                                    :star, :review_title, :review_body)
   end
-  # def tag_params
-  #   params.require(:review).permit(:game_id,:tag_ids[])
-  # end
   def move_to_signed_in
       unless user_signed_in?
       redirect_to root_path

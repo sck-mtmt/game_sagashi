@@ -3,9 +3,9 @@
 <% #APIでの画像 %>
 <h5>投稿のあるタグ集計</h5>
     容量:
-      <%#= Game.review.tag.name_1.count(:tag_id) %>件<br>
+      <%= Review.tags(:tag_id).group('tag_1').count %>件<br>
     機種:
-      <%#= Game.review.tag.name_2.count(:tag_id) %>件<br>
+      <%#= Review.tags(:tag_id).group('tag.name_2').count %>件<br>
     価格:
       <%#= Game.review.tag.name_3.count(:tag_id) %>件<br>
     BGM:
@@ -16,7 +16,7 @@
       <%#= Game.review.tag.name_6.count(:tag_id) %>件<br>
 
 <% @reviews.each do |review| %><br>
-  <% if review.star.present? %>
+  <% unless review.star.present? %>
     <%= review.user.nick_name %><br>
     <%= review.review_title %><br>
     <div>

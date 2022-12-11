@@ -16,9 +16,6 @@ class Public::ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-    #tag_lists =  params[:review][:tag_ids]
-    #tag_lists.shift
-    #binding.pry
     @review.update(review_params)
     redirect_to public_users_my_page_path
   end
