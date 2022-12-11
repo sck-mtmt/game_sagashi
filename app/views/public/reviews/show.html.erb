@@ -2,18 +2,9 @@
 
 <% #APIでの画像 %>
 <h5>投稿のあるタグ集計</h5>
-    容量:
-      <%= Review.tags(:tag_id).group('tag_1').count %>件<br>
-    機種:
-      <%#= Review.tags(:tag_id).group('tag.name_2').count %>件<br>
-    価格:
-      <%#= Game.review.tag.name_3.count(:tag_id) %>件<br>
-    BGM:
-      <%#= Game.review.tag.name_4.count(:tag_id) %>件<br>
-    レビューが好評:
-      <%#= Game.review.tag.name_5.count(:tag_id) %>件<br>
-    雰囲気が良さそう:
-      <%#= Game.review.tag.name_6.count(:tag_id) %>件<br>
+<% Tag.all.each do |tag| %>
+    <%= tag.name %>: <%= tag.reviews.count %>件<br>
+<% end %>
 
 <% @reviews.each do |review| %><br>
   <% unless review.star.present? %>
