@@ -20,8 +20,8 @@ class Public::UsersController < ApplicationController
   
   def show
     @user = current_user
-    @review = current_user.reviews.where(star: nil)
-    @reviews = current_user.reviews.where.not(star: nil)
+    @reviews_of_checked_games = current_user.reviews.where(star: nil)
+    @reviews_of_cleared_games = current_user.reviews.where.not(star: nil)
   end
 
   def edit

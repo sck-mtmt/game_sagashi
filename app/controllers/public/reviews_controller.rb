@@ -16,13 +16,10 @@ class Public::ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
+    #tag_lists =  params[:review][:tag_ids]
+    #tag_lists.shift
     #binding.pry
-    @review.user_id = current_user.id
-    @review.game_id = params[:review][:game_id]
-    tag_lists =  params[:review][:tag_ids]
-    tag_lists.shift
     @review.update(review_params)
-    #@review.save_tag(item)
     redirect_to public_users_my_page_path
   end
 
@@ -34,8 +31,7 @@ class Public::ReviewsController < ApplicationController
 
   private
     def review_params
-      params.require(:review).permit(:user_id, :game_id, :star,
-                                   :review_title, :review_body, :tag_ids[])
+      params.require(:review).permit(:star, :review_title, :review_body)
     end
     def move_to_signed_in
         unless user_signed_in?
