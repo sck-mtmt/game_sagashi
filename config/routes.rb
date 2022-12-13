@@ -20,10 +20,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     patch 'users/my_page' => 'users#update'
     get 'users/unsubsscribe' => 'users#unsubsscribe'
     patch 'users/withdraw' => 'users#withdraw'
-    resources :reviews,only: [:new, :create, :index, :show, :edit, :update, :destroy]
+    resources :reviews,only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+      resources :post_comments,only: [:create, :destroy]
+    end
   end
   devise_scope :user do
-    # post 'users/guest_sign_in', to: 'users/sessions#new_guest'
     post 'public/guest_sign_in', to: 'public/sessions#new_guest'
   end
     root to:'public/homes#top'

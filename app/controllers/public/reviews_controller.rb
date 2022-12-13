@@ -8,6 +8,7 @@ class Public::ReviewsController < ApplicationController
   def show
     @review = Review.find(params[:id])
     @reviews = Review.all
+    @post_comment = PostComment.new
   end
 
   def edit
@@ -23,7 +24,7 @@ class Public::ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
-    redirect_to public_review_path(review.id)
+    redirect_to public_review_path(@review.id)
   end
 
   private

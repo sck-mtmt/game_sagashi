@@ -14,6 +14,7 @@
             <th>ゲームタイトル</th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -30,7 +31,8 @@
                   </h8>
                 </div><br>
             </td>
-            <td><%= link_to "詳細＆コメントする", public_review_path(review.id) %></td>
+            <td><%= link_to "#{review.post_comments.count} コメント", public_review_path(review.id) %></td>
+            <td><%= link_to "[詳細]", public_review_path(review.id) %></td>
         </tr>
         <% end %>
     </tbody>
