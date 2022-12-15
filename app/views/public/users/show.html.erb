@@ -18,7 +18,7 @@
   <% @reviews_of_checked_games.each do |review| %>
     <% unless review.star.present? %>
       <h6>投稿日</h6>
-      <%= review.created_at.strftime('%Y/%m/%d') %>
+      <%= review.created_at.strftime('%Y年%m月%d日') %>
       <h6>ゲームタイトル</h6>
       <%= review.game.game_title %>
       <%= link_to "レビューする", edit_public_review_path(review.id) %>
@@ -28,8 +28,8 @@
 <h3>ゲームクリア済一覧</h3>
   <% @reviews_of_cleared_games.each do |review| %>
     <% if review.star.present? %>
-      <h6>クリアレビュー日</h6>
-      <%= review.updated_at.strftime('%Y/%m/%d') %>
+      <h6>クリアレビュー日:
+      <%= review.updated_at.strftime('%Y年%m月%d日') %></h6>
       <div>
         <h6>評価：
           <span class="star-rating">
@@ -41,9 +41,9 @@
       <h6>レビュータイトル</h6>
       <%= review.review_title %>
       <h6>レビュー文</h6>
-      <%= review.review_body %>
-      <% if review.user == current_user %>
-        <%= link_to "レビュー削除", public_review_path(review.id), method: :delete %>
-      <% end %>
+      <%= review.review_body %><br>
+        <% if review.user == current_user %>
+          <%= link_to "レビュー削除", public_review_path(review.id), method: :delete %>
+        <% end %>
     <% end %>
   <% end %>
