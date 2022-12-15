@@ -42,5 +42,8 @@
       <%= review.review_title %>
       <h6>レビュー文</h6>
       <%= review.review_body %>
+      <% if review.user == current_user %>
+        <%= link_to "レビュー削除", public_review_path(review.id), method: :delete %>
+      <% end %>
     <% end %>
   <% end %>
