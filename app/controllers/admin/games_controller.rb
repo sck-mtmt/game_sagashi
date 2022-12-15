@@ -30,8 +30,7 @@ class Admin::GamesController < ApplicationController
   private
     def game_params
       params.require(:game).permit(:game_title, :game_description, :price,
-                                   :game_model, :capacity, :review_count,
-                                   :is_active)
+                                   :game_model, :capacity, :is_active)
     end
 end
 

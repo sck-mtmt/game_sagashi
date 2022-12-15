@@ -9,6 +9,7 @@
       <th>価格</th>
       <th>機種</th>
       <th>容量</th>
+      <th>公開ステータス</th>
     </tr>
   </thead>
   <tbody>
@@ -22,12 +23,12 @@
       <td><%= game.game_model %></td>
       <td><%= game.capacity %>KB</td>
       <td><% if game.is_active %>
-          公開中
+            公開中
           <% else %>
-          未公開
+            未公開
           <% end %>
       </td>
-    <% end %>
     </tr>
+    <% end %>
   </tbody>
 </table>
