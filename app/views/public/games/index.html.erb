@@ -1,4 +1,4 @@
-<h1>ゲーム一覧</h1>
+<div class=title><h3>ゲーム一覧</h3></div>
 <p>レビューを投稿するにはゲーム選択後<strong>プレイしたいゲームに登録</strong>してからできます</p>
 
 <table class="table">
@@ -18,9 +18,9 @@
           <%= game.game_title %>
           <% end %></td>
       <!--<amazonのAPIをいれて画像表示させたい>-->
-      <td><%= game.capacity %></td>
+      <td><%= game.capacity %>KB</td>
       <td><%= game.game_model %></td>
-      <td><%= game.price %></td>
+      <td><%= game.price %>円</td>
     <% end %>
     </tr>
   </tbody>

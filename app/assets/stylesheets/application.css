@@ -1,3 +1,4 @@
+/*★評価*/
 .post_form{
     display: flex;
     flex-direction: row-reverse;
@@ -11,7 +12,7 @@
     padding: 10px 10px 0;
     color: gray;
     cursor: pointer;
-    font-size: 30px; /*星の大きさを変更*/
+    font-size: 30px; /*星の大きさ*/
   }
   .post_form label .text{
     position: absolute;
@@ -19,7 +20,7 @@
     top: 0;
     right: 0;
     text-align: center;
-    font-size: 9px; /*星の上の説明書きの大きさを変更*/
+    font-size: 9px; /*星の上の説明書きの大きさ*/
     color: gray;
   }
   .post_form label:hover,
@@ -27,9 +28,7 @@
   .post_form input[type='radio']:checked ~ label{
     color: #ffcc00;
   }
-
-/*　以下一覧ページの星用のCSS　*/
-
+/*　以下一覧ページの評価星用のCSS　*/
   .star-rating {
     position: relative;
     display: inline-block;
@@ -48,5 +47,14 @@
   .star-rating-back {
     display: inline-block;
     color: #ccc;
-
+  }
+  /*各画面のタイトル*/
+  .title{
+    padding: 10px 0px 10px 10px;
+    width: 100%;
+    text-align: left;
+    color: yellow;
+    text-decoration: underline;
+    border-bottom-width: 1px yellow;
+    background-color: #000066;
   }

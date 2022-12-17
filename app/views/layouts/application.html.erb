@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheets" href="application.css"/>
     <title>GameSagashi</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -47,9 +48,6 @@
       </li>
       <li>
         <%= link_to "ログイン", new_user_session_path %>
-      </li>
-      <li>
-        <%#= link_to 'ゲストログイン（閲覧用）', public_homes_guest_sign_in_path, data: { turbo_method: :post } %>
       </li>
     <% end %>
     </header>
