@@ -21,14 +21,15 @@
     <%= review.review_body %><br>
   <% end %>
 <% end %>
-<% #コメント機能 %>
+<!--コメント機能-->
 <div>
   <p>コメント件数：<%= @review.post_comments.count %></p>
   <% @review.post_comments.each do |post_comment| %>
     <%= post_comment.user.nick_name %>
-    <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+    <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+    <%= post_comment.comment %>
     <% if post_comment.user == current_user %>
-      <%= link_to "コメント削除", public_review_post_comment_path(post_comment.review, post_comment), method: :delete %>
+      <%= link_to "コメント削除", public_review_post_comment_path(post_comment.review, post_comment), method: :delete, "data-confirm" => "本当に削除しますか？" %>
     <% end %>
   <% end %>
 </div>

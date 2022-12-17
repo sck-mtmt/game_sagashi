@@ -43,7 +43,7 @@
       <h6>レビュー文</h6>
       <%= review.review_body %><br>
         <% if review.user == current_user %>
-          <%= link_to "レビュー削除", public_review_path(review.id), method: :delete %>
+          <%= link_to "レビュー削除", public_review_path(review.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
         <% end %>
     <% end %>
   <% end %>
