@@ -12,43 +12,49 @@
   </head>
   <body>
     <header>
+      <div class="logo">Game探し</div>
+      <div class="item-list">
     <% if admin_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-      </li>
-      <li>
-        <%= link_to "会員一覧", admin_users_path %>
-      </li>
-      <li>
-        <%= link_to "レビュー一覧", admin_root_path %>
-      </li>
-      <li>
-        <%= link_to "ゲーム一覧", admin_games_path %>
-      </li>
-
+        <div class="item">
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"btn btn-outline-danger" %>
+        </div>
+        <div class="item">
+          <%= link_to "会員一覧", admin_users_path, class:"btn btn-outline-warning" %>
+        </div>
+        <div class="item">
+          <%= link_to "レビュー一覧", admin_root_path, class:"btn btn-outline-danger" %>
+        </div>
+        <div class="item">
+          <%= link_to "ゲーム一覧", admin_games_path, class:"btn btn-outline-primary" %>
+        </div>
+        </div>
     <% elsif user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-      <li>
-        <%= link_to "ゲーム一覧", public_games_path %>
-      </li>
-      <li>
-        <%= link_to "マイページ", public_users_my_page_path %>
-      </li>
-      <li>
-        <%= link_to "レビュー一覧", public_reviews_path %>
-      </li>
+        <div class="item">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-outline-danger" %>
+        </div>
+        <div class="item">
+          <%= link_to "ゲーム一覧", public_games_path, class:"btn btn-outline-warning" %>
+        </div>
+        <div class="item">
+          <%= link_to "マイページ", public_users_my_page_path, class:"btn btn-outline-danger" %>
+        </div>
+        <div class="item">
+          <%= link_to "レビュー一覧", public_reviews_path, class:"btn btn-outline-primary" %>
+        </div>
     <% else%>
-      <li>
-        <%= link_to "ゲーム一覧", public_games_path %>
-      </li>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
+        <div class="item">
+          <%= link_to "ゲーム一覧", public_games_path, class:"btn btn-outline-success" %>
+        </div>
+        <div class="item">
+          <%= link_to "新規登録", new_user_registration_path, class:"btn btn-outline-warning" %>
+        </div>
+        <div class="item">
+          <%= link_to "ログイン", new_user_session_path, class:"btn btn-outline-danger" %>
+        </div>
+        <div class="item">
+          <%= link_to 'ゲストログイン（閲覧用）', public_guest_sign_in_path, method: :post, class:"btn btn-outline-primary" %>
+        </div>
+      </div>
     <% end %>
     </header>
   </body>

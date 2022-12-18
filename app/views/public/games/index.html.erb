@@ -1,30 +1,35 @@
-<div class=title><h3>ゲーム一覧</h3></div>
-<p>レビューを投稿するにはゲーム選択後<strong>プレイしたいゲームに登録</strong>してからできます</p>
-
-<table class="table">
-  <thead>
-    <tr>
-      <!--<th>amazonAPI画像</th>-->
-      <th>ゲーム名</th>
-      <th>ゲーム容量</th>
-      <th>機種</th>
-      <th>価格</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @games.each do |game| %>
-    <tr>
-      <td><%= link_to public_game_path(game.id) do %>
-          <%= game.game_title %>
-          <% end %></td>
-      <!--<amazonのAPIをいれて画像表示させたい>-->
-      <td><%= game.capacity %>KB</td>
-      <td><%= game.game_model %></td>
-      <td><%= game.price %>円</td>
-    <% end %>
-    </tr>
-  </tbody>
- </table>
+<div class="container">
+  <div class="row">
+    <div class=title>
+      <h3>ゲーム一覧</h3>
+    </div>
+  </div>
+    <p>レビューを投稿するにはゲーム選択後<strong>プレイしたいゲームに登録</strong>してからできます</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <!--<th>amazonAPI画像</th>-->
+          <th>ゲーム名</th>
+          <th>ゲーム容量</th>
+          <th>機種</th>
+          <th>価格</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @games.each do |game| %>
+        <tr>
+          <td><%= link_to public_game_path(game.id) do %>
+              <%= game.game_title %>
+              <% end %></td>
+          <!--<amazonのAPIをいれて画像表示させたい>-->
+          <td><%= game.capacity %>KB</td>
+          <td><%= game.game_model %></td>
+          <td><%= game.price %>円</td>
+        <% end %>
+        </tr>
+      </tbody>
+     </table>
+</div>
 
 
 

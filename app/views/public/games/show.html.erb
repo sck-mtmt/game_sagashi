@@ -1,24 +1,47 @@
-<h1>ゲーム詳細</h1>
+<div class="container">
+  <div class="row">
+    <div class=title>
+      <h3>ゲーム詳細</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col1-3"></div>
+      <h3><%= @game.game_title %></h3>
 
-<%= @game.game_title %><br>
-<!--<amazonのAPIをいれて画像表示させたい>-->
-<h5>ゲーム概要</h5>
-<%= @game.game_description %><br>
-<h5>ゲーム機種</h5>
-<%= @game.game_model %><br>
-<h5>ゲーム価格</h5>
-<%= @game.price %>円<br>
-
-<!--投稿することによってレビューできるようになる。マイページへ登録画面がいく-->
-  <h3>なぜ興味を持ったのか教えてください</h3>
-  <%= form_with model: @review, url:public_users_my_page_path, method: :post do |f| %>
-        <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
-                <%#= tag.label do %>
-                    <%= tag.check_box %>
-                    <%= tag.text %>
-                <%# end %>
-        <% end %>
-        <%= f.hidden_field :game_id, :value => @game.id %>
-        <%= f.submit '投稿', class: 'btn btn-primary' %>
-
-  <% end %>
+      <!--<amazonのAPIをいれて画像表示させたい>-->
+  </div>
+  <div class="row">
+    <div class="col-6"></div>
+      <h5>ゲーム概要:
+      <%= @game.game_description %></h5><br>
+  </div>
+  <div class="row">
+    <div class="col-6"></div>
+      <h5>ゲーム機種:
+      <%= @game.game_model %></h5><br>
+  </div>
+  <div class="row">
+    <div class="col-6"></div>
+      <h5>ゲーム価格:
+      <%= @game.price %>円</h5><br>
+  </div>
+    <!--投稿することによってレビューできるようになる。マイページへ登録画面がいく-->
+  <div class="row">
+    <div class="col-2"></div>
+      <h3>なぜ興味を持ったのか教えてください</h3>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+      <%= form_with model: @review, url:public_users_my_page_path, method: :post do |f| %>
+            <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+                        <%= tag.check_box %>
+                        <%= tag.text %>
+            <% end %>
+            <%= f.hidden_field :game_id, :value => @game.id %>
+  </div>
+  <div class="row">
+    <div class="col-4"></div>
+        <%= f.submit '投稿', class:'btn btn-primary w-25' %>
+      <% end %>
+  </div>
+</div>

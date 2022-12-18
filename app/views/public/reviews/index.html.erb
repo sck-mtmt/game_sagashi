@@ -1,4 +1,4 @@
-<h1>レビュー一覧</h1>
+<h3>レビュー一覧</h3>
 <%= form_tag public_reviews_path, method: :get, class: 'boards__searchForm' do %>
       <%= select_tag :tag_id,
                      options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
@@ -17,7 +17,6 @@
                      }
       %>
 <% end %>
-<%#= collection_select(Review.where(star: [1.0, 2.0, 3.0, 4.0, 5.0]))%>
 <table>
     <thead>
         <tr>

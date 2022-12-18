@@ -1,9 +1,29 @@
-<h1>ようこそGame探しへ</h1>
-<p>このサイトはテレビゲームのレビューサイトになります。<br>
-   会員登録しなくてもゲーム一覧は見れますが、レビュー投稿はできません。<br>
-   投稿には会員登録が必要になります。</p>
-  新しいゲーム購入前にレビュー見てみませんか？
-   <h3><%= link_to "新規登録", new_user_registration_path %></h3>
-  <h3><%= link_to "ログイン", new_user_session_path %></h3>
-  <h3><%= link_to 'ゲストログイン（閲覧用）', public_guest_sign_in_path, method: :post %></h3>
-
+<div class="container">
+  <div class="row">
+     <div class="col-3"></div>
+      <div class="col-7">
+        <h1>ようこそGame探しへ</h1>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-8">
+          <p>このサイトはテレビゲームのレビューサイトになります。</p>
+          <p>会員登録しなくてもゲーム一覧は見れますが、レビュー投稿はできません</p>
+          <p>投稿には会員登録が必要になります。</p>
+          <p>新しいゲーム購入前にレビュー見てみませんか？</p>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-3"></div>
+          <%= link_to "新規登録", new_user_registration_path, class:"btn btn-outline-primary w-50 mt-2" %>
+      </div>
+      <div class="row">
+        <div class="col-3"></div>
+          <%= link_to "ログイン", new_user_session_path, class:"btn btn-outline-primary w-50 mt-2" %>
+      </div>
+      <div class="row">
+        <div class="col-3"></div>
+          <%= link_to 'ゲストログイン（閲覧用）', public_guest_sign_in_path, method: :post, class:"btn btn-outline-primary w-50 mt-2" %>
+      </div>
+</div>

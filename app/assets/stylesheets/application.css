@@ -9,7 +9,7 @@
   }
   .post_form label{
     position: relative;
-    padding: 10px 10px 0;
+    padding: 5px 5px 0;
     color: gray;
     cursor: pointer;
     font-size: 30px; /*星の大きさ*/
@@ -53,8 +53,32 @@
     padding: 10px 0px 10px 10px;
     width: 100%;
     text-align: left;
-    color: yellow;
+    color: #FFF;
+    text-decoration: underline #FFF;
+    background-color: #0099FF;
+  }
+  /*ヘッダー*/
+  .item-list{
+    margin: 10px;
+    display: flex;
+    justify-content: center; /* 中央寄せ */
+  }
+  .item-list .item{
+    box-sizing: border-box;
+    padding: 20px 20px;
+  }
+  .logo{
+    margin-top: 30px;
+    margin-right: 50px;
+    font-size: 48px;
+    text-align: center;
+    line-height: 15px;
+    font-weight: bold;
+    color: #03A9F4;
+  }
+  span{
     text-decoration: underline;
-    border-bottom-width: 1px yellow;
-    background-color: #000066;
+  }
+  .center h3{
+    text-align: center;
   }
