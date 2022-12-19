@@ -1,22 +1,28 @@
-<h1>ユーザー編集</h1>
-<%= form_with model: @user,url: admin_user_path,method: :patch do |f| %>
+<div class="container">
+  <div class="row">
+    <div class=title>
+      <h3>ユーザー編集</h3>
+    </div>
+  </div>
+    <%= form_with model: @user,url: admin_user_path,method: :patch do |f| %>
 
-  <%= f.label :nick_name,"ニックネーム" %>
-  <%= f.text_field :nick_name %><br>
-  <%= f.label :birth_date,"生年月日" %>
-  <%= f.date_select :birth_date, use_month_numbers: true,
-      start_year: 1930, end_year: (Time.now.year - 10) %><br>
-  <%= f.label :gender,"性別" %><br>
-      <%= f.label :男性 %>
-      <%= f.radio_button :gender, :"man" %>
-      <%= f.label :女性 %>
-      <%= f.radio_button :gender, :"woman" %>
-      <%= f.label :未回答 %>
-      <%= f.radio_button :gender, :"unanswered" %><br>
-  <%= f.label :email,"メールアドレス" %>
-　　  <%= f.email_field :email, autofocus: true, autocomplete: "email" %><br>
-  <%= f.label :is_deleted,"会員ステータス" %>
-      <%= f.radio_button :is_deleted,false %>有効
-      <%= f.radio_button :is_deleted,true %>退会
-  <%= f.submit'編集内容を保存' %>
-<% end %>
+        <%= f.label :nick_name,"ニックネーム" %>
+        <%= f.text_field :nick_name %><br>
+        <%= f.label :birth_date,"生年月日" %>
+        <%= f.date_select :birth_date, use_month_numbers: true,
+            start_year: 1930, end_year: (Time.now.year - 10) %><br>
+        <%= f.label :gender,"性別" %><br>
+            <%= f.label :男性 %>
+            <%= f.radio_button :gender, :"man" %>
+            <%= f.label :女性 %>
+            <%= f.radio_button :gender, :"woman" %>
+            <%= f.label :未回答 %>
+            <%= f.radio_button :gender, :"unanswered" %><br>
+        <%= f.label :email,"メールアドレス" %>
+      　　  <%= f.email_field :email, autofocus: true, autocomplete: "email" %><br>
+        <%= f.label :is_deleted,"会員ステータス" %>
+            <%= f.radio_button :is_deleted,false %>有効
+            <%= f.radio_button :is_deleted,true %>退会
+        <%= f.submit'編集内容を保存', class:"btn btn-primary " %>
+    <% end %>
+</div>

@@ -3,24 +3,23 @@
 <% #APIでの画像 %>
 <h5>投稿のあるタグ集計</h5>
   <% Tag.all.each do |tag| %>
-    <%= tag.name %>: <%= tag.reviews.where("reviews.game_id=?",@game.id).count %>件<br>
+    <%= tag.name %>: <%= tag.reviews.where("reviews.game_id=?", @game.id).count %>件<br>
   <% end %>
 
-<% @reviews.each do |review| %><br>
-  <% if review.star.present? %>
-    <%= review.user.nick_name %><br>
-    <%= review.review_title %><br>
+  <% if @review.star.present? %>
+    <%= @review.user.nick_name %><br>
+    <%= @review.review_title %><br>
     <div>
       <h8>総合評価：
         <span class="star-rating">
-          <span class="star-rating-front" style="width: <%= getPercent(review.star) %>%;">★★★★★</span>
+          <span class="star-rating-front" style="width: <%= getPercent(@review.star) %>%;">★★★★★</span>
           <span class="star-rating-back">★★★★★</span>
         </span>
       </h8>
     </div><br>
-    <%= review.review_body %><br>
+    <%= @review.review_body %><br>
   <% end %>
-<% end %>
+
 <!--コメント機能-->
 <div>
   <p>コメント件数：<%= @review.post_comments.count %></p>

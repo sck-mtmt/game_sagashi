@@ -16,7 +16,7 @@
       <div class="item-list">
     <% if admin_signed_in? %>
         <div class="item">
-          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"btn btn-outline-danger" %>
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"btn btn-outline-success" %>
         </div>
         <div class="item">
           <%= link_to "会員一覧", admin_users_path, class:"btn btn-outline-warning" %>
@@ -30,7 +30,7 @@
         </div>
     <% elsif user_signed_in? %>
         <div class="item">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-outline-danger" %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-outline-success" %>
         </div>
         <div class="item">
           <%= link_to "ゲーム一覧", public_games_path, class:"btn btn-outline-warning" %>

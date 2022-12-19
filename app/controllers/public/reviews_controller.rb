@@ -8,7 +8,6 @@ class Public::ReviewsController < ApplicationController
   def show
     @review = Review.find(params[:id])
     @game = @review.game
-    @reviews = Review.all
     @post_comment = PostComment.new
   end
 
@@ -18,8 +17,11 @@ class Public::ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-    @review.update(review_params)
-    redirect_to public_users_my_page_path
+    if @review.update(review_params)
+      redirect_to public_users_my_page_path
+    else
+      redirect_to edit_public_review_path
+    end
   end
 
   def destroy
@@ -34,7 +36,7 @@ class Public::ReviewsController < ApplicationController
     end
     def move_to_signed_in
         unless user_signed_in?
-        redirect_to root_path
+          redirect_to root_path
         end
     end
 end

@@ -12,7 +12,7 @@
       <%= select_tag :star,
                      options_from_collection_for_select(Review.all, :id, :star, params[:star]),
                      {
-                       prompt: '評価の絞り込み検索',
+                       prompt: '評価で絞り込む',
                        onchange: 'submit(this.form);'
                      }
       %>
@@ -21,29 +21,32 @@
     <thead>
         <tr>
             <th>ゲームタイトル</th>
-            <th></th>
-            <th></th>
+            <th>総合評価</th>
+            <th>ニックネーム</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         <% @reviews.each do |review| %>
-        <tr>
-            <td><%= review.game.game_title %></td>
-            <td>
-                <div>
-                  <h8>総合評価：
-                    <span class="star-rating">
-                      <span class="star-rating-front" style="width: <%= getPercent(review.star) %>%;">★★★★★</span>
-                        <span class="star-rating-back">★★★★★</span>
-                      </span>
-                  </h8>
-                </div><br>
-            </td>
-            <td><%= link_to "#{review.post_comments.count} コメント", public_review_path(review.id) %></td>
-            <td><%= link_to "[詳細]", public_review_path(review.id) %></td>
-        </tr>
+          <% if review.star.present? %>
+          <tr>
+              <td><%= review.game.game_title %></td>
+              <td>
+                  <div>
+                    <h8>
+                      <span class="star-rating">
+                        <span class="star-rating-front" style="width: <%= getPercent(review.star) %>%;">★★★★★</span>
+                          <span class="star-rating-back">★★★★★</span>
+                        </span>
+                    </h8>
+                  </div><br>
+              </td>
+              <td><%= review.user.nick_name %></td>
+              <td><%= link_to "#{review.post_comments.count} コメント", public_review_path(review.id) %></td>
+          </tr>
+          <% end %>
         <% end %>
     </tbody>
 </table>
+
 

@@ -1,23 +1,43 @@
-<h1><%= @user.nick_name %>さんのユーザー詳細</h1>
-
-<h7>会員ID</h7>
-<%= @user.id %><br>
-<h7>ニックネーム</h7>
-<%= @user.nick_name %><br>
-<h7>生年月日</h7>
-<%= @user.birth_date.strftime("%Y年%m月%d日") %><br>
-
-<h7>性別</h7>
-<%= @user.gender_i18n %><br>
-<h7>メールアドレス</h7>
-<%= @user.email %>
-<h7>ステータス</h7>
-<% if @user.is_deleted %>
-    <font color="silver">退会</font>
-<% else %>
-    <font color="green"><strong>有効</strong></font>
-<% end %><br>
-<%= link_to "編集する", edit_admin_user_path %>
-
+<div class="container">
+  <div class="row">
+    <div class=title>
+      <h3><%= @user.nick_name %>さんのユーザー詳細</h3>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-1"></div>
+        <h4>会員ID:<%= @user.id %></h4>
+  </div>
+  <div class="row">
+      <div class="col-1"></div>
+        <h4>ニックネーム:<%= @user.nick_name %></h4>
+  </div>
+  <div class="row">
+      <div class="col-1"></div>
+        <h4>生年月日:<%= @user.birth_date.strftime("%Y年%m月%d日") %></h4>
+  </div>
+  <div class="row">
+      <div class="col-1"></div>
+        <h4>性別:<%= @user.gender_i18n %></h4>
+  </div>
+  <div class="row">
+      <div class="col-1"></div>
+        <h4>メールアドレス:<%= @user.email %></h4>
+  </div>
+  <div class="row">
+      <div class="col-1"></div>
+        <h4>ステータス:
+            <% if @user.is_deleted %>
+                <font color="silver">退会</font>
+            <% else %>
+                <font color="green"><strong>有効</strong></font>
+            <% end %>
+        </h4>
+  </div>
+  <div class="row">
+      <div class="col-1"></div>
+        <%= link_to "編集する", edit_admin_user_path, class:"btn btn-primary " %>
+  </div>
+</div>
 
 

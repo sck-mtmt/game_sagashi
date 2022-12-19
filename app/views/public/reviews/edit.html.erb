@@ -18,10 +18,14 @@
     <%= f.radio_button :star, 1 ,id: 'star5'%>
     <label for="star5"><span class="text">最悪</span>★</label>
   </div>
-<h5>レビュータイトル</h5>
-    <%= f.text_field :review_title %><br>
-<h5>レビュー文</h5>
-    <%= f.text_field :review_body %><br>
+  <div class="form-group">
+    <h5>レビュータイトル</h5>
+      <%= f.text_field :review_title %>
+  </div>
+  <div class="form-group">
+    <h5>レビュー文</h5>
+      <%= f.text_field :review_body %>
+  </div>
     <%= f.submit 'レビューを投稿する', class: 'btn btn-primary' %>
 <% end %>
 
