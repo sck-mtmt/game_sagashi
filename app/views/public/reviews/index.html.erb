@@ -3,19 +3,14 @@
       <%= select_tag :tag_id,
                      options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
                      {
-                       prompt: 'タグで絞り込み検索',
+                       prompt: '興味の投稿での絞り込み検索',
                        onchange: 'submit(this.form);'
                      }
       %>
 <% end %>
-<%= form_tag public_reviews_path, method: :get, class: 'boards__searchForm' do %>
-      <%= select_tag :star,
-                     options_from_collection_for_select(Review.all, :id, :star, params[:star]),
-                     {
-                       prompt: '評価で絞り込む',
-                       onchange: 'submit(this.form);'
-                     }
-      %>
+<%= form_tag(public_reviews_path, method: "get") do %>
+  <%= select_tag(:star, options_for_select([["★","1.0"],["★★","2.0"],["★★★","3.0"],["★★★★","4.0"],["★★★★★","5.0"]])) %>
+  <%= submit_tag "評価を絞り込み" %>
 <% end %>
 <table>
     <thead>

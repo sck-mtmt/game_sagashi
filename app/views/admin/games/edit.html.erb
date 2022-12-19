@@ -1,4 +1,9 @@
-<h1>ゲーム編集</h1>
+<div class="container">
+  <div class="row">
+    <div class=title>
+      <h3>ゲーム編集</h3>
+    </div>
+  </div>
 <%= form_with model: @game,url: admin_game_path(@game.id),method: :patch do |f| %>
 　<%= f.label :ゲームタイトル%>
   <%= f.text_field :game_title %><br>
@@ -14,5 +19,6 @@
   <%= f.radio_button :is_active, true %>公開中
   <%= f.radio_button :is_active, false %>未公開
 
-  <%= f.submit '編集済みにする' %><br>
+  <%= f.submit '編集済みにする', class:"btn btn-primary" %><br>
 <% end %>
+</div>

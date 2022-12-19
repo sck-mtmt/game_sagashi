@@ -1,24 +1,30 @@
-<h1>レビュー一覧</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>投稿日時</th>
-            <th>レビュータイトル</th>
-            <th>レビュー内容</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @reviews.each do |review| %>
-        <tr>
-            <td><%= review.id %></td>
-            <td><%= link_to admin_review_path(review.id) do %>
-                <%= review.updated_at.strftime('%Y/%m/%d') %>
-                <% end %></td>
-            <td><%= review.review_title %></td>
-            <td><%= review.review_body %></td>
-            <td><%= link_to "レビュー削除", admin_review_path(review.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div class=title>
+        <h3>レビュー一覧</h3>
+    </div>
+  </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>投稿日時</th>
+                <th>レビュータイトル</th>
+                <th>レビュー内容</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @reviews.each do |review| %>
+            <tr>
+                <td><%= review.id %></td>
+                <td><%= link_to admin_review_path(review.id) do %>
+                    <%= review.updated_at.strftime('%Y/%m/%d') %>
+                    <% end %></td>
+                <td><%= review.review_title %></td>
+                <td><%= review.review_body %></td>
+                <td><%= link_to "レビュー削除", admin_review_path(review.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

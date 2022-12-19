@@ -1,4 +1,9 @@
-<h1>ゲーム詳細</h1>
+<div class="container">
+  <div class="row">
+    <div class=title>
+      <h3>ゲーム詳細</h3>
+    </div>
+  </div>
 
 ゲームタイトル　：　<%= @game.game_title %><br>
 ゲーム概要　：　<%= @game.game_description %><br>
@@ -12,3 +17,4 @@
     <% end %>
 
 <%= link_to "ゲーム編集",edit_admin_game_path %>
+</div>
