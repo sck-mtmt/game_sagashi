@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
 
-  belongs_to :game
+  belongs_to :game, primary_key: "isbn"
   belongs_to :user
   has_many :post_comments, dependent: :destroy
   has_many :tag_maps, dependent: :destroy

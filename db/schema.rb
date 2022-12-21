@@ -24,13 +24,15 @@ ActiveRecord::Schema.define(version: 2022_12_13_171819) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "games", force: :cascade do |t|
+  create_table "games", primary_key: "isbn", force: :cascade do |t|
     t.string "game_title"
     t.string "game_description"
     t.integer "price"
     t.string "game_model"
     t.integer "capacity"
-    t.integer "amazon_url"
+    t.string "rakuten_url"
+    t.string "large_image_url"
+    t.string "small_image_url"
     t.boolean "is_active", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -50,8 +52,6 @@ ActiveRecord::Schema.define(version: 2022_12_13_171819) do
     t.float "star"
     t.string "review_title"
     t.string "review_body"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tag_maps", force: :cascade do |t|

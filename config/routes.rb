@@ -14,6 +14,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   end
   namespace :public do
     resources :games,only: [:index,:show]
+    get 'games/search', to: "games#search"
     post 'users/my_page' => 'users#create'
     get 'users/my_page' => 'users#show'
     get 'users/my_page/edit' => 'users#edit'
