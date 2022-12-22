@@ -5,15 +5,7 @@
     </div>
   </div>
     <p>レビューを投稿するにはゲーム選択後<strong>プレイしたいゲームに登録</strong>してからできます</p>
-
-  <%= form_tag(public_games_search_path, method: :get) do %>
-    <%= f.text_field_tag :game_title, @title %>
-    <%= button_tag type: "submit" %>
-  <% end %>
-
-
-
-    <table class="table">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th></th>
@@ -41,18 +33,6 @@
 
 
 
-
-#検索結果を表示
-<% if @games %>
-  <% @books.each do |book| %>
-  #ご自身が表示させたいデータを記載してください。
-  #以下のコードではは画像、タイトル、著者名、商品の説明を表示させています。
-    <%= image_tag book.image_url %>
-    <%= book.title %>
-    <%= book.author %>
-    <%= book.item_caption %>
-  <% end %>
-<% end %>
 
 
 

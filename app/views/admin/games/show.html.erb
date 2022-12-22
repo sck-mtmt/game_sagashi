@@ -7,9 +7,9 @@
 
 ゲームタイトル　：　<%= @game.game_title %><br>
 ゲーム概要　：　<%= @game.game_description %><br>
-価格　：　<%= @game.price %><br>
+価格　：　<%= @game.price %>円(税込)<br>
 機種　：　<%= @game.game_model %><br>
-容量：　<%= @game.capacity %><br>
+容量：　<%= @game.capacity %>GB<br>
     <% if @game.is_active %>
       公開中
     <% else %>

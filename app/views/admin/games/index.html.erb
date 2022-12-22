@@ -24,9 +24,9 @@
                 <%= game.game_title %>
                 <% end %></td>
             <td><%= game.game_description %></td>
-            <td><%= game.price %>円</td>
+            <td><%= game.price %>円（税込）</td>
             <td><%= game.game_model %></td>
-            <td><%= game.capacity %>KB</td>
+            <td><%= game.capacity %>GB</td>
             <td><% if game.is_active %>
                   公開中
                 <% else %>
