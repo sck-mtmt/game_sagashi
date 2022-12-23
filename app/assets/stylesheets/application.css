@@ -82,3 +82,11 @@
   .center h3{
     text-align: center;
   }
+  .no-image-box p{
+    text-align:center;
+    margin: auto;
+    width: 350px;
+    height: 350px;
+    border: solid 3px #000000;
+
+  }

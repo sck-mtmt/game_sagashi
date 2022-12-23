@@ -17,7 +17,7 @@ class Public::UsersController < ApplicationController
          redirect_to public_users_my_page_path
       end
   end
-  
+
   def show
     @user = current_user
     @reviews_of_checked_games = current_user.reviews.where(star: nil)

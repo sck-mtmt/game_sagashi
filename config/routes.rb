@@ -8,12 +8,12 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
   namespace :admin do
     root to:"homes#top"
-    resources :games, only: [:index,:new,:create,:show,:edit,:update]
-    resources :users, only: [:index,:show,:edit,:update]
-    resources :reviews, only: [:index,:show,:destroy]
+    resources :games, only: [:index, :new, :create, :show, :edit, :update]
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :reviews, only: [:index, :show, :destroy]
   end
   namespace :public do
-    resources :games,only: [:index,:show]
+    resources :games,only: [:index, :show]
     post 'users/my_page' => 'users#create'
     get 'users/my_page' => 'users#show'
     get 'users/my_page/edit' => 'users#edit'
@@ -29,3 +29,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   end
     root to:'public/homes#top'
 end
+
+
+
+

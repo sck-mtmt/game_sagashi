@@ -1,47 +1,53 @@
-<h3>レビュー一覧</h3>
-<%= form_tag public_reviews_path, method: :get, class: 'boards__searchForm' do %>
-      <%= select_tag :tag_id,
-                     options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
-                     {
-                       prompt: '興味の投稿での絞り込み検索',
-                       onchange: 'submit(this.form);'
-                     }
-      %>
-<% end %>
-<%= form_tag(public_reviews_path, method: "get") do %>
-  <%= select_tag(:star, options_for_select([["★","1.0"],["★★","2.0"],["★★★","3.0"],["★★★★","4.0"],["★★★★★","5.0"]])) %>
-  <%= submit_tag "評価を絞り込み" %>
-<% end %>
-<table>
-    <thead>
-        <tr>
-            <th>ゲームタイトル</th>
-            <th>総合評価</th>
-            <th>ニックネーム</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @reviews.each do |review| %>
-          <% if review.star.present? %>
-          <tr>
-              <td><%= review.game.game_title %></td>
-              <td>
-                  <div>
-                    <h8>
-                      <span class="star-rating">
-                        <span class="star-rating-front" style="width: <%= getPercent(review.star) %>%;">★★★★★</span>
-                          <span class="star-rating-back">★★★★★</span>
-                        </span>
-                    </h8>
-                  </div><br>
-              </td>
-              <td><%= review.user.nick_name %></td>
-              <td><%= link_to "#{review.post_comments.count} コメント", public_review_path(review.id) %></td>
-          </tr>
-          <% end %>
-        <% end %>
-    </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div class=title>
+      <h3>レビュー一覧</h3>
+    </div>
+  </div>
+      <%= form_tag public_reviews_path, method: :get, class: 'boards__searchForm' do %>
+            <%= select_tag :tag_id,
+                           options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+                           {
+                             prompt: '興味の投稿での絞り込み検索',
+                             onchange: 'submit(this.form);'
+                           }
+            %>
+      <% end %>
+      <%= form_tag(public_reviews_path, method: "get") do %>
+        <%= select_tag(:star, options_for_select([["★","1.0"],["★★","2.0"],["★★★","3.0"],["★★★★","4.0"],["★★★★★","5.0"]])) %>
+        <%= submit_tag "評価を絞り込み" %>
+      <% end %>
+      <table>
+          <thead>
+              <tr>
+                  <th>ゲームタイトル</th>
+                  <th>総合評価</th>
+                  <th>ニックネーム</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+              <% @reviews.each do |review| %>
+                <% if review.star.present? %>
+                <tr>
+                    <td><%= review.game.game_title %></td>
+                    <td>
+                        <div>
+                          <h8>
+                            <span class="star-rating">
+                              <span class="star-rating-front" style="width: <%= getPercent(review.star) %>%;">★★★★★</span>
+                                <span class="star-rating-back">★★★★★</span>
+                              </span>
+                          </h8>
+                        </div><br>
+                    </td>
+                    <td><%= review.user.nick_name %></td>
+                    <td><%= link_to "#{review.post_comments.count} コメント", public_review_path(review.id) %></td>
+                </tr>
+                <% end %>
+              <% end %>
+          </tbody>
+      </table>
+</div>
 
 
