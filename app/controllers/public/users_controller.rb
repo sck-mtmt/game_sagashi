@@ -44,7 +44,9 @@ class Public::UsersController < ApplicationController
     reset_session
     redirect_to root_path
   end
+
   private
+
   def user_params
     params.require(:user).permit(:nick_name, :birth_date, :genger, :email,
                                  :encrypted_password, :is_deleted)

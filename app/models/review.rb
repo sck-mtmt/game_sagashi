@@ -1,5 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :user
+  belongs_to :game
   has_many :post_comments, dependent: :destroy
   has_many :tag_maps, dependent: :destroy
   has_many :tags, through: :tag_maps, dependent: :destroy

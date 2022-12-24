@@ -1,31 +1,42 @@
-<h1>クリア後のレビューを投稿する</h1>
-<h3>購入後、ゲームクリア後のレビューを投稿する</h3>
-<%= form_with model: @review,url: public_review_path,method: :put do |f| %>
-<h5>総合評価</h5>
-  <div class="post_form">
-    <%= f.radio_button :star, 5 ,id: 'star1'%>
-    <label for="star1"><span class="text">最高</span>★</label>
-
-    <%= f.radio_button :star, 4 ,id: 'star2'%>
-    <label for="star2"><span class="text">良い</span>★</label>
-
-    <%= f.radio_button :star, 3 ,id: 'star3'%>
-    <label for="star3"><span class="text">普通</span>★</label>
-
-    <%= f.radio_button :star, 2 ,id: 'star4'%>
-    <label for="star4"><span class="text">悪い</span>★</label>
-
-    <%= f.radio_button :star, 1 ,id: 'star5'%>
-    <label for="star5"><span class="text">最悪</span>★</label>
+<div class="container">
+  <div class="row">
+    <div class=title>
+      <h3>クリア後のレビューを投稿する</h3>
+    </div>
   </div>
-  <div class="form-group">
-    <h5>レビュータイトル</h5>
-      <%= f.text_field :review_title %>
+  <div class="row">
+    <div class="col-3"></div>
+      <%= form_with model: @review,url: public_review_path,method: :put do |f| %>
+      <h5>総合評価</h5>
+        <div class="post_form">
+          <%= f.radio_button :star, 5 ,id: 'star1'%>
+          <label for="star1"><span class="text">最高</span>★</label>
+
+          <%= f.radio_button :star, 4 ,id: 'star2'%>
+          <label for="star2"><span class="text">良い</span>★</label>
+
+          <%= f.radio_button :star, 3 ,id: 'star3'%>
+          <label for="star3"><span class="text">普通</span>★</label>
+
+          <%= f.radio_button :star, 2 ,id: 'star4'%>
+          <label for="star4"><span class="text">悪い</span>★</label>
+
+          <%= f.radio_button :star, 1 ,id: 'star5'%>
+          <label for="star5"><span class="text">最悪</span>★</label>
+        </div>
+        <div class="form-group">
+          <h5>レビュータイトル</h5>
+            <%= f.text_field :review_title, maxlength: "30", size: "60x10" %>
+        </div>
+        <div class="form-group">
+          <h5>レビュー文</h5>
+            <%= f.text_area :review_body, maxlength: "300", size: "60x10" %>
+        </div>
   </div>
-  <div class="form-group">
-    <h5>レビュー文</h5>
-      <%= f.text_field :review_body %>
+  <div class="row">
+    <div class="col-6"></div>
+          <%= f.submit 'レビューを投稿する', class: 'btn btn-primary' %>
+      <% end %>
   </div>
-    <%= f.submit 'レビューを投稿する', class: 'btn btn-primary' %>
-<% end %>
+</div>
 

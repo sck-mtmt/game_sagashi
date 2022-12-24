@@ -3,7 +3,6 @@ class Public::ReviewsController < ApplicationController
   def index
     @reviews = Review.all
     @reviews = params[:tag_id].present? ? Tag.find(params[:tag_id]).reviews : Review.all
-
     @reviews = Review.where('star LIKE ?', "%#{params[:star]}%")
 
   end
@@ -40,6 +39,6 @@ class Public::ReviewsController < ApplicationController
     def move_to_signed_in
         unless user_signed_in?
         redirect_to root_path
-      end
+        end
     end
 end

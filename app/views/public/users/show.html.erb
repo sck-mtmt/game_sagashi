@@ -30,9 +30,11 @@
         <% @reviews_of_checked_games.each do |review| %>
           <% unless review.star.present? %>
             <h6>ゲームタイトル：
-              <%= review.game.game_title %></h6>
+                <%= review.game.game_title %>
+            </h6>
             <h6>投稿日：
-              <%= review.created_at.strftime('%Y年%m月%d日') %></h6>
+                <%= review.created_at.strftime('%Y年%m月%d日') %>
+            </h6>
             <%= link_to "レビューする", edit_public_review_path(review.id), class:"btn btn-primary w-50" %>
           <% end %>
         <% end %>
@@ -43,7 +45,8 @@
         <% @reviews_of_cleared_games.each do |review| %>
           <% if review.star.present? %>
             <h6>クリアレビュー日:
-            <%= review.updated_at.strftime('%Y年%m月%d日') %></h6>
+                <%= review.updated_at.strftime('%Y年%m月%d日') %>
+            </h6>
             <h6><%= review.game.game_title %></h6>
             <div>
               <h6>評価：

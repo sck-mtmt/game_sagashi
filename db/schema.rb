@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 2022_12_13_171819) do
     t.float "star"
     t.string "review_title"
     t.string "review_body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tag_maps", force: :cascade do |t|

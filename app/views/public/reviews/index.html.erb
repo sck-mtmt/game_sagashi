@@ -4,7 +4,10 @@
       <h3>レビュー一覧</h3>
     </div>
   </div>
-      <%= form_tag public_reviews_path, method: :get, class: 'boards__searchForm' do %>
+  <div class="row">
+    <div class="col-3">
+      <div class="form-group">
+        <%= form_tag public_reviews_path, method: :get, class: 'boards__searchForm' do %>
             <%= select_tag :tag_id,
                            options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
                            {
@@ -12,12 +15,19 @@
                              onchange: 'submit(this.form);'
                            }
             %>
-      <% end %>
-      <%= form_tag(public_reviews_path, method: "get") do %>
-        <%= select_tag(:star, options_for_select([["★","1.0"],["★★","2.0"],["★★★","3.0"],["★★★★","4.0"],["★★★★★","5.0"]])) %>
-        <%= submit_tag "評価を絞り込み" %>
-      <% end %>
-      <table>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="form-group">
+        <%= form_tag(public_reviews_path, method: "get") do %>
+          <%= select_tag(:star, options_for_select([["★","1.0"],["★★","2.0"],["★★★","3.0"],["★★★★","4.0"],["★★★★★","5.0"]])) %>
+          <%= submit_tag "評価を絞り込み" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+      <table class="table table-hover">
           <thead>
               <tr>
                   <th>ゲームタイトル</th>
@@ -37,12 +47,12 @@
                             <span class="star-rating">
                               <span class="star-rating-front" style="width: <%= getPercent(review.star) %>%;">★★★★★</span>
                                 <span class="star-rating-back">★★★★★</span>
-                              </span>
+                            </span>
                           </h8>
                         </div><br>
                     </td>
                     <td><%= review.user.nick_name %></td>
-                    <td><%= link_to "#{review.post_comments.count} コメント", public_review_path(review.id) %></td>
+                    <td><%= link_to "#{review.post_comments.count} コメント＆詳細", public_review_path(review.id) %></td>
                 </tr>
                 <% end %>
               <% end %>
