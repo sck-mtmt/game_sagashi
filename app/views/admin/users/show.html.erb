@@ -6,33 +6,33 @@
   </div>
   <div class="row">
       <div class="col-1"></div>
-        <h4>会員ID:<%= @user.id %></h4>
+        会員ID:<%= @user.id %>
   </div>
   <div class="row">
       <div class="col-1"></div>
-        <h4>ニックネーム:<%= @user.nick_name %></h4>
+        ニックネーム:<%= @user.nick_name %>
   </div>
   <div class="row">
       <div class="col-1"></div>
-        <h4>生年月日:<%= @user.birth_date.strftime("%Y年%m月%d日") %></h4>
+        生年月日:<%= @user.birth_date.strftime("%Y年%m月%d日") %>
   </div>
   <div class="row">
       <div class="col-1"></div>
-        <h4>性別:<%= @user.gender_i18n %></h4>
+        性別:<%= @user.gender_i18n %>
   </div>
   <div class="row">
       <div class="col-1"></div>
-        <h4>メールアドレス:<%= @user.email %></h4>
+      メールアドレス:<%= @user.email %>
   </div>
   <div class="row">
       <div class="col-1"></div>
-        <h4>ステータス:
-            <% if @user.is_deleted %>
-                <font color="silver">退会</font>
-            <% else %>
-                <font color="green"><strong>有効</strong></font>
-            <% end %>
-        </h4>
+        ステータス:
+          <% if @user.is_deleted %>
+              <font color="silver">退会</font>
+          <% else %>
+              <font color="green"><strong>有効</strong></font>
+          <% end %>
+
   </div>
   <div class="row">
       <div class="col-1"></div>

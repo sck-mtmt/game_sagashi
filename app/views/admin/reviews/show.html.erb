@@ -4,20 +4,20 @@
       <h3><%= @user.nick_name %> さんレビュー詳細</h3>
     </div>
   </div>
-
     <h5><%= @game.game_title %></h5>
     <!--ユーザーのゲームクリア後のレビュー-->
-    <%= @review.review_title %>
-        <div>
-          <h8>総合評価：
-            <span class="star-rating">
-              <span class="star-rating-front" style="width: <%= getPercent(@review.star) %>%;">★★★★★</span>
-              <span class="star-rating-back">★★★★★</span>
-            </span>
-          </h8>
-        </div>
-    <%= @review.review_body %>
+      <%= @review.review_title %>
+          <div>
+            <h8>総合評価：
+              <span class="star-rating">
+                <span class="star-rating-front" style="width: <%= getPercent(@review.star) %>%;">★★★★★</span>
+                <span class="star-rating-back">★★★★★</span>
+              </span>
+            </h8>
+          </div>
+      <%= @review.review_body %>
     <!--レビューに対してのコメント-->
+    <div class="heading_border">
       <p>コメント件数：<%= @review.post_comments.count %></p>
       <% @review.post_comments.each do |post_comment| %>
         ユーザーID:　<%= post_comment.user.id %><br>
@@ -25,5 +25,6 @@
         コメント投稿日時:　<%= post_comment.created_at.strftime('%Y/%m/%d') %><br>
         コメント:　<%= post_comment.comment %><br>
       <% end %>
+    </div>
 </div>
 

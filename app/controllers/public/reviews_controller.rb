@@ -1,9 +1,9 @@
 class Public::ReviewsController < ApplicationController
     before_action :move_to_signed_in, except: [:index, :show]
   def index
-    @reviews = Review.all
-    @reviews = params[:tag_id].present? ? Tag.find(params[:tag_id]).reviews : Review.all
-    @reviews = Review.where('star LIKE ?', "%#{params[:star]}%")
+    @reviews = Review.page(params[:page])
+    @reviews = params[:tag_id].present? ? Tag.find(params[:tag_id]).reviews : Review.page(params[:page])
+    @reviews = Review.where('star LIKE ?', "%#{params[:star]}%").page(params[:page])
 
   end
 

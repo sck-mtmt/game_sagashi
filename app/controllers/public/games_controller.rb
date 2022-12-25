@@ -1,6 +1,6 @@
 class Public::GamesController < ApplicationController
   def index
-    @games = Game.all
+    @games = Game.page(params[:page])
   end
 
   def show

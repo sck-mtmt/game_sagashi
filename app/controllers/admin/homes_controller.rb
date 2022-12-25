@@ -1,6 +1,6 @@
 class Admin::HomesController < ApplicationController
   def top
-    @reviews = Review.all
+    @reviews = Review.page(params[:page])
   end
 
     private
