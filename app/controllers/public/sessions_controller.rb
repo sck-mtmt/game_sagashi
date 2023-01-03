@@ -15,10 +15,10 @@ class Public::SessionsController < Devise::SessionsController
     end
   end
   def new_guest
-    # binding.pry
     user = User.guest
     sign_in user
-    redirect_to public_games_path, notice: 'ゲストユーザーとしてログインしました。'
+    flash[:notice] = "ゲストユーザーとしてログインしました"
+    redirect_to public_games_path
   end
 
   protected
