@@ -5,7 +5,7 @@
     </div>
   </div>
     <%= form_with model: @game, url:admin_games_path, method: :post do |f| %>
-    　<%= f.label :ゲームタイトル %>
+      <%= f.label :ゲームタイトル %>
       <%= f.text_field :game_title %><br>
       <%= f.label :ゲーム概要 %>
       <%= f.text_area :game_description %><br>

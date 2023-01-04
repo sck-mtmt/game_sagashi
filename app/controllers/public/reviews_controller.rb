@@ -2,7 +2,9 @@ class Public::ReviewsController < ApplicationController
     before_action :move_to_signed_in, except: [:index, :show]
   def index
     @reviews = Review.page(params[:page])
-    @reviews = params[:tag_id].present? ? Tag.find(params[:tag_id]).reviews : Review.page(params[:page])
+    # タグ絞りこみ
+    @reviews = params[:tag_id].present? ? Tag.find(params[:tag_id]).reviews : Review.all
+    # 評価での絞りこみ
     @reviews = Review.where('star LIKE ?', "%#{params[:star]}%").page(params[:page])
 
   end
@@ -34,7 +36,7 @@ class Public::ReviewsController < ApplicationController
 
   private
     def review_params
-      params.require(:review).permit(:star, :review_title, :review_body)
+      params.require(:review).permit(:star, :review_title, :review_body,tag_ids: [])
     end
     def move_to_signed_in
         unless user_signed_in?
