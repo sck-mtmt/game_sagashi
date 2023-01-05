@@ -12,7 +12,9 @@
                            options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
                            {
                              prompt: '興味の投稿での絞り込み検索',
-                             onchange: 'submit(this.form);'
+                             #onchange: 'submit(this.form);'
+                             # id=tag_idの要素から見て一番近いform要素のsubmitメソッドを実行
+                             onchange: '$("#tag_id").closest("form").submit();'
                            }
             %>
         <% end %>
