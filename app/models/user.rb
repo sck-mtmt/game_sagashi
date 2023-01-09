@@ -21,6 +21,7 @@ class User < ApplicationRecord
     find_or_create_by!(email: 'aaa@aaa.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.nick_name = "ゲスト"
+      user.gender = "unanswered"
       user.birth_date = '2000-01-01'
       user.is_deleted = false
     end
