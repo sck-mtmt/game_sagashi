@@ -37,7 +37,7 @@ class Public::ReviewsController < ApplicationController
 
   private
     def review_params
-      params.require(:review).permit(:star, :review_title, :review_body,:tag_ids[])
+      params.require(:review).permit(:star, :review_title, :review_body)
     end
     def move_to_signed_in
         unless user_signed_in?
