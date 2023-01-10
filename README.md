@@ -24,13 +24,13 @@
 
 ## 設計書
 - 実装機能リスト　https://docs.google.com/spreadsheets/d/1BADeWwhMeCpZz5JmCOEL4AaiK2ERqwjl5_UhpgrjBhA/edit?usp=sharing
-- テスト仕様書
+
 
 著作権の問題で、ゲーム画面のキャプチャー、キャラクターイラストの掲載を禁止。
 RakutenAPIを使用した外部からのデータ取得
 
 ## 開発環境
-使用検討中
+
 
 ## 使用素材
-使用検討中
+
