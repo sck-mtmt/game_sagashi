@@ -7,7 +7,7 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>ニックネーム</th>
                 <th>投稿日時</th>
                 <th>レビュータイトル</th>
                 <th>レビュー内容</th>
@@ -16,7 +16,7 @@
         <tbody>
             <% @reviews.each do |review| %>
             <tr>
-                <td><%= review.id %></td>
+                <td><%= review.user.nick_name %></td>
                 <td><%= link_to admin_review_path(review.id) do %>
                     <%= review.updated_at.strftime('%Y/%m/%d') %>
                     <% end %></td>
