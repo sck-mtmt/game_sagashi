@@ -4,7 +4,7 @@ class Public::ReviewsController < ApplicationController
     if params[:tag_id].present? #タグでの検索
       @reviews=Tag.find(params[:tag_id]).reviews.page(params[:page])
     elsif params[:star].present? #評価での検索
-      @reviews=Review.where('star LIKE ?', "%#{params[:star]}%").page(params[:page])
+      @reviews=Review.where(star: params[:star]).page(params[:page])
     else #検索されていない場合
       @reviews= Review.all.page(params[:page])
     end
