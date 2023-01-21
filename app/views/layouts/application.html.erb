@@ -35,7 +35,6 @@
             <i class="fa-solid fa-gamepad"></i>　ゲーム一覧
           <% end %>
         </div>
-        </div>
     <% elsif user_signed_in? %>
         <div class="item">
           <%= link_to destroy_user_session_path, class:"btn btn-outline-success", method: :delete do %>
@@ -59,7 +58,7 @@
         </div>
     <% else%>
         <div class="item">
-          <%= link_to public_games_path, class:"btn btn-outline-success" do %>
+          <%= link_to public_games_path, class:"btn btn-outline-success w-110" do %>
             <i class="fa-solid fa-gamepad"></i>　ゲーム一覧
           <% end %>
         </div>
