@@ -84,7 +84,10 @@
   span{
     text-decoration: underline;
   }
-  .center h3{
+  .center h3 {
+    text-align: center;
+  }
+  .center p{
     text-align: center;
   }
   .no-image-box p{
