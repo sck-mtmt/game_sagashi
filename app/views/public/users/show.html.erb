@@ -44,7 +44,7 @@
       <h3><span>ゲームクリア済一覧</span></h3>
         <% @reviews_of_cleared_games.each do |review| %>
           <% if review.star.present? %>
-            <h6>クリアレビュー日:
+            <h6>レビュー日:
                 <%= review.updated_at.strftime('%Y年%m月%d日') %>
             </h6>
             <h6><%= review.game.game_title %></h6>
@@ -61,7 +61,7 @@
             <h6>レビュー文：
             <%= review.review_body %></h6>
               <% if review.user == current_user %>
-                <%= link_to "レビュー削除", public_review_path(review.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:'btn btn-danger w-50' %>
+                <%= link_to "削除する", public_review_path(review.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:'btn btn-danger w-50' %>
               <% end %>
           <% end %>
         <% end %>
