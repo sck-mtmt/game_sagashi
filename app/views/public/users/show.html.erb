@@ -35,7 +35,9 @@
             <h6>投稿日：
                 <%= review.created_at.strftime('%Y年%m月%d日') %>
             </h6>
-            <%= link_to "レビューする", edit_public_review_path(review.id), class:"btn btn-primary w-50" %>
+            <%= link_to edit_public_review_path(review.id), class:"btn btn-primary w-30" do %>
+              <i class="fa-solid fa-star"></i>　レビューする
+            <% end %>
           <% end %>
         <% end %>
   </div>
