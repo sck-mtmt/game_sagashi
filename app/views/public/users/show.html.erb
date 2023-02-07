@@ -28,44 +28,48 @@
       <!--投稿したゲームデータが入る-->
       <h3><span>ゲームチェック済一覧</span></h3>
         <% @reviews_of_checked_games.each do |review| %>
-          <% unless review.star.present? %>
-            <h6>投稿日：
-                <%= review.created_at.strftime('%Y年%m月%d日') %>
-            </h6>
-            <h6><%= review.game.game_title %></h6><!--ゲームタイトル-->
-            <%= link_to edit_public_review_path(review.id), class:"btn btn-primary w-30" do %>
-              <i class="fa-solid fa-star"></i>　レビューする
+          <div class="user-show">
+            <% unless review.star.present? %>
+              <h6>投稿日：
+                  <%= review.created_at.strftime('%Y年%m月%d日') %>
+              </h6>
+              <h6><%= review.game.game_title %></h6><!--ゲームタイトル-->
+              <%= link_to edit_public_review_path(review.id), class:"btn btn-primary w-30" do %>
+                <i class="fa-solid fa-star"></i>　レビューする
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         <% end %>
   </div>
   <div class="col-4">
       <!--レビューしたゲームデータが入る-->
       <h3><span>ゲームクリア済一覧</span></h3>
         <% @reviews_of_cleared_games.each do |review| %>
-          <% if review.star.present? %>
-            <h6>レビュー日:
-                <%= review.updated_at.strftime('%Y年%m月%d日') %>
-            </h6>
-            <h6><%= review.game.game_title %></h6>
-            <div>
-              <h6>評価：
-                <span class="star-rating">
-                  <span class="star-rating-front" style="width: <%= getPercent(review.star) %>%;">★★★★★</span>
-                  <span class="star-rating-back">★★★★★</span>
-                </span>
+          <div class="user-show">
+            <% if review.star.present? %>
+              <h6>レビュー日:
+                  <%= review.updated_at.strftime('%Y年%m月%d日') %>
               </h6>
-            </div>
-            <h6>レビュータイトル：
-            <%= review.review_title %></h6>
-            <h6>レビュー文：
-            <%= review.review_body %></h6>
-              <% if review.user == current_user %>
-                <%= link_to public_review_path(review.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:'btn btn-danger w-30' do %>
-                  <i class="fa-solid fa-trash-can"></i>　削除する
+              <h6><%= review.game.game_title %></h6>
+              <div>
+                <h6>評価：
+                  <span class="star-rating">
+                    <span class="star-rating-front" style="width: <%= getPercent(review.star) %>%;">★★★★★</span>
+                    <span class="star-rating-back">★★★★★</span>
+                  </span>
+                </h6>
+              </div>
+              <h6>レビュータイトル：
+              <%= review.review_title %></h6>
+              <h6>レビュー文：
+              <%= review.review_body %></h6>
+                <% if review.user == current_user %>
+                  <%= link_to public_review_path(review.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:'btn btn-danger w-30' do %>
+                    <i class="fa-solid fa-trash-can"></i>　削除する
+                  <% end %>
                 <% end %>
-              <% end %>
-          <% end %>
+            <% end %>
+          </div>
         <% end %>
   </div>
 </div>

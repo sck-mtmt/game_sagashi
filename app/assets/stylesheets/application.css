@@ -91,6 +91,11 @@
   .game-show{
     padding-top: 50px;
   }
+  .user-show:hover{
+    /*padding-top: 10px;*/
+    background-color:#CCFFCC; 	/*:hoverでリンクにマウスが乗ったら背景色を変更する*/
+    border-radius: 10px;
+  }
 
   .no-image-box p{
     text-align:center;
