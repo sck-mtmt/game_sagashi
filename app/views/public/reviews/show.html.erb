@@ -40,7 +40,7 @@
         <div>
           <p>コメント件数：<%= @review.post_comments.count %></p>
           <% @review.post_comments.each do |post_comment| %>
-            <%= post_comment.user.nick_name %><br>
+            <strong><%= post_comment.user.nick_name %></strong><br>
             <%= post_comment.created_at.strftime('%Y/%m/%d') %><br>
             <%= post_comment.comment %><br>
             <% if post_comment.user == current_user %>
