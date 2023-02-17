@@ -116,6 +116,10 @@
     margin-bottom: 100px;
   }
 @media screen and (max-width: 425px) {
+  .item-list{
+    /*height: 10px;*/
+    width: 100%;
+  }
 
 
 }
