@@ -84,7 +84,7 @@
   span{
     text-decoration: underline;
   }
-  .center h3, p,h4 {
+  .center h3, p, h4 {
     text-align: center;
   }
 
@@ -116,7 +116,7 @@
     margin-bottom: 100px;
   }
 @media screen and (max-width: 1024px) {
-  h6{
-    color:red;
-  }
+/*  h6{*/
+/*    color:red;*/
+/*  }*/
 }
