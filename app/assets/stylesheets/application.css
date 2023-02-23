@@ -119,4 +119,13 @@
 /*  h6{*/
 /*    color:red;*/
 /*  }*/
-}
+  .no-image-box p{
+    width: 250px;
+    height: 200px;
+  }
+  .game-show-question h3{
+    font-size: 15px;
+  }
+
+  }
+
