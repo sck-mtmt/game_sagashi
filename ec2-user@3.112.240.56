@@ -1,0 +1,4 @@
+DB_USERNAME="root"
+DB_PASSWORD="Shachi1715"
+DB_HOST="rds-mysql-server.chudtjy1rlez.ap-northeast-1.rds.amazonaws.com"
+DB_DATABASE="game_sagashi"
