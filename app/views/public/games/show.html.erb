@@ -30,7 +30,7 @@
   </div>
     <!--投稿することによってレビューできるようになる。マイページへ登録画面がいく-->
   <div class="row">
-      <div class="col-2"></div>
+      <div class="col-xs-2 col-lg-3"></div>
       <div class="col-9">
         <div class="game-show-question">
           <h3>-----------なぜ興味を持ったのか教えてください-----------</h3>
@@ -38,7 +38,7 @@
       </div>
   </div>
   <div class="row">
-    <div class="col-3"></div>
+    <div class="col-xs-3 col-lg-3"></div>
       <%= form_with model: @review, url:public_users_my_page_path, method: :post do |f| %>
             <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
                         <%= tag.check_box %>
