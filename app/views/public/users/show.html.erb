@@ -33,7 +33,7 @@
               <h6>投稿日：
                   <%= review.created_at.strftime('%Y年%m月%d日') %>
               </h6>
-              <h6><%= review.game.game_title %></h6><!--ゲームタイトル-->
+              <h6><strong><%= review.game.game_title %></strong></h6><!--ゲームタイトル-->
               <%= link_to edit_public_review_path(review.id), class:"btn btn-primary w-30" do %>
                 <i class="fa-solid fa-star"></i>　レビューする
               <% end %>
@@ -50,7 +50,7 @@
               <h6>レビュー日:
                   <%= review.updated_at.strftime('%Y年%m月%d日') %>
               </h6>
-              <h6><%= review.game.game_title %></h6>
+              <h6><strong><%= review.game.game_title %></strong></h6>
               <div>
                 <h6>評価：
                   <span class="star-rating">
