@@ -4,21 +4,21 @@
     </div>
       <%= form_with model: @user,url: public_users_my_page_path,method: :patch do |f| %>
     <div class="row">
-      <div class="col-2"></div>
+      <div class="col-1"></div>
         <h6><%= f.label :nick_name,"ニックネーム" %>
       <div class="col-1"></div>
             <%= f.text_field :nick_name, autofocus: true, autocomplete:"nick_name" %>
         </h6>
     </div>
     <div class="row">
-      <div class="col-2"></div>
+      <div class="col-1"></div>
         <h6><%= f.label :birth_date,"生年月日" %>
       <div class="col-1"></div>
             <%= f.date_select :birth_date, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10) %>
         </h6>
     </div>
     <div class="row">
-      <div class="col-2"></div>
+      <div class="col-1"></div>
         <h6><%= f.label :gender,"性別" %>
       <div class="col-1"></div>
           <%= f.label :男性 %>
@@ -30,14 +30,14 @@
         </h6>
     </div>
     <div class="row">
-      <div class="col-2"></div>
+      <div class="col-1"></div>
         <h6><%= f.label :email,"メールアドレス" %>
       <div class="col-1"></div>
             <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </h6>
     </div>
     <div class="row">
-      <div class="col-2"></div>
+      <div class="col-1"></div>
           <%= f.submit "変更を保存する", class:"btn btn-primary w-25" %>
     </div>
       <% end %>
